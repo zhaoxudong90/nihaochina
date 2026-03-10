@@ -686,9 +686,131 @@
     }
     footer a { color: var(--gray-400); text-decoration: none; }
     footer a:hover { color: var(--red); }
+
+    /* ════════════════════════════════════════
+       CITY MODAL
+    ════════════════════════════════════════ */
+    .city-modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.52);
+      backdrop-filter: blur(3px);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .city-modal-overlay.open {
+      display: flex;
+      animation: fadeIn .18s ease-out;
+    }
+    .city-modal {
+      background: #fff;
+      border-radius: 20px;
+      max-width: 480px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      box-shadow: 0 24px 64px rgba(0,0,0,.28);
+      animation: fadeInUp .2s ease-out;
+    }
+    .city-modal::-webkit-scrollbar { width: 5px; }
+    .city-modal::-webkit-scrollbar-thumb { background: var(--gray-200); border-radius: 3px; }
+
+    .cm-head {
+      background: linear-gradient(135deg, var(--red-dark) 0%, var(--red) 100%);
+      padding: 24px 24px 20px;
+      position: relative;
+      border-radius: 20px 20px 0 0;
+      color: #fff;
+    }
+    .cm-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 32px; height: 32px;
+      background: rgba(255,255,255,.2);
+      border: none; border-radius: 50%;
+      color: #fff; font-size: 15px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s;
+      font-family: inherit;
+    }
+    .cm-close:hover { background: rgba(255,255,255,.38); }
+    .cm-city-emoji { font-size: 38px; margin-bottom: 8px; display: block; }
+    .cm-city-name { font-size: 1.6rem; font-weight: 800; letter-spacing: -.03em; }
+    .cm-city-tagline { font-size: .83rem; opacity: .82; margin-top: 4px; font-weight: 500; }
+    .cm-score-wrap {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 14px;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50px;
+      padding: 5px 14px;
+    }
+    .cm-score-label { font-size: .70rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; opacity: .88; }
+    .cm-score-stars { font-size: 15px; letter-spacing: 1px; }
+    .cm-score-num { font-size: .82rem; font-weight: 700; opacity: .9; }
+
+    .cm-body { padding: 20px 22px 24px; }
+    .cm-section { margin-bottom: 18px; }
+    .cm-section:last-child { margin-bottom: 0; }
+    .cm-section-head {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .73rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .08em;
+      color: var(--gray-500);
+      margin-bottom: 8px;
+    }
+    .cm-section-icon {
+      width: 22px; height: 22px;
+      border-radius: 5px; background: var(--gray-100);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; flex-shrink: 0;
+    }
+    .cm-text { font-size: .875rem; color: var(--gray-700); line-height: 1.68; }
+    .cm-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+    .cm-tag {
+      padding: 4px 11px; border-radius: 50px;
+      font-size: .78rem; font-weight: 500;
+      background: var(--gray-100); color: var(--gray-700);
+    }
+    .cm-tag-food { background: #fff7ed; color: #c2410c; }
+    .cm-tag-spot { background: #eff6ff; color: #1d4ed8; }
+
+    /* ── Make TWOV city tags clickable ── */
+    .tag-city {
+      cursor: pointer;
+      transition: background .14s, color .14s, transform .1s;
+      user-select: none;
+    }
+    .tag-city:hover {
+      background: var(--red); color: #fff;
+      transform: translateY(-1px);
+    }
+    .tag-city::after { content: ' ›'; opacity: .5; font-size: .7em; }
   </style>
 </head>
 <body>
+
+<!-- ═══════════════════════════════════════════════
+     CITY MODAL
+════════════════════════════════════════════════ -->
+<div class="city-modal-overlay" id="cityModalOverlay">
+  <div class="city-modal" id="cityModal">
+    <div class="cm-head">
+      <button class="cm-close" id="cmClose">✕</button>
+      <span class="cm-city-emoji" id="cmEmoji">🏙️</span>
+      <div class="cm-city-name" id="cmName">City</div>
+      <div class="cm-city-tagline" id="cmTagline"></div>
+      <div class="cm-score-wrap">
+        <span class="cm-score-label">Fun Score</span>
+        <span class="cm-score-stars" id="cmStars">★★★★★</span>
+        <span class="cm-score-num" id="cmScoreNum">5.0</span>
+      </div>
+    </div>
+    <div class="cm-body" id="cmBody"><!-- filled by JS --></div>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════════════
      HERO — MODERN REDESIGN
@@ -985,6 +1107,186 @@ const TWOV_CITIES = [
   "Nanning","Zhengzhou","Changsha","Guiyang","Hefei","Shijiazhuang"
 ];
 
+// ── City info data for popup modals ──
+const CITY_DATA = {
+  "Beijing": {
+    emoji: "🏯", score: 5.0,
+    tagline: "Capital City · 3,000 Years of History",
+    intro: "China's grand capital and imperial heart. From the Forbidden City to the Great Wall, Beijing is where ancient dynasties and modern ambition collide in spectacular fashion.",
+    attractions: ["Forbidden City (Palace Museum)", "Great Wall (Mutianyu / Badaling)", "Temple of Heaven", "Summer Palace", "798 Art District"],
+    culture: "Imperial grandeur meets modern creativity. Catch a Peking Opera performance, wander ancient hutong alleyways, or explore the thriving contemporary arts scene.",
+    food: ["Peking Roast Duck", "Zhajiangmian noodles", "Jianbing street crepes", "Lamb hotpot", "Baozi steamed buns"]
+  },
+  "Shanghai": {
+    emoji: "🌆", score: 5.0,
+    tagline: "China's Cosmopolitan Jewel",
+    intro: "A dazzling city where Art Deco grandeur meets futuristic skylines. Shanghai is China's fashion, finance, and food capital — and its nightlife is unmatched.",
+    attractions: ["The Bund waterfront promenade", "Yu Garden (Ming Dynasty)", "Shanghai Tower (observatory)", "French Concession", "Zhujiajiao Water Town (day trip)"],
+    culture: "A cosmopolitan blend of East and West. The French Concession's café culture, world-class museums, and a buzzing nightlife scene make Shanghai perpetually exciting.",
+    food: ["Xiaolongbao soup dumplings", "Shengjianbao pan-fried buns", "Hongshao Rou red-braised pork", "Hairy crab (seasonal, Oct–Nov)", "Lion's head meatballs"]
+  },
+  "Guangzhou": {
+    emoji: "🍵", score: 4.0,
+    tagline: "Cantonese Culture Capital · Dim Sum Heaven",
+    intro: "The birthplace of dim sum and China's gateway to the world. Guangzhou's vibrant street life, colonial Shamian Island, and legendary Cantonese cuisine are irresistible.",
+    attractions: ["Chen Clan Ancestral Hall", "Canton Tower (night views)", "Shamian Island (colonial architecture)", "Beijing Road Pedestrian Street", "Baiyun Mountain"],
+    culture: "Cantonese culture runs deep — from lively yum cha (dim sum breakfast) culture to Cantonese opera and the world's largest trade fair (Canton Fair).",
+    food: ["Dim sum (Yum Cha breakfast)", "Roast goose", "Wonton noodles", "Cheung fun rice rolls", "Cantonese BBQ pork (Char Siu)"]
+  },
+  "Chengdu": {
+    emoji: "🐼", score: 5.0,
+    tagline: "Panda City · Spice Capital of the World",
+    intro: "Home to giant pandas, world-famous spicy cuisine, and the most relaxed café culture in China. Chengdu consistently ranks as one of China's most lovable cities.",
+    attractions: ["Giant Panda Breeding Research Base", "Wuhou Shrine (Three Kingdoms)", "Jinli Ancient Street", "Leshan Giant Buddha (day trip, UNESCO)", "Jiuzhaigou Valley (overnight trip)"],
+    culture: "Sichuan's unhurried lifestyle is legendary. Enjoy mahjong in teahouses, watch face-changing Sichuan opera, and soak in the vibrant food and nightlife scene.",
+    food: ["Sichuan hotpot (mala spicy broth)", "Dan Dan noodles", "Malatang skewers", "Kung Pao Chicken", "Twice-Cooked Pork"]
+  },
+  "Chongqing": {
+    emoji: "🌉", score: 4.5,
+    tagline: "Mountain City · Neon Cliffs & Mega Hotpot",
+    intro: "A mega-city carved into cliffs where two rivers meet, Chongqing's neon-lit terraced buildings and earth-shaking hotpot make it one of China's most visually dramatic destinations.",
+    attractions: ["Hongyadong cliffside complex (lit up at night!)", "Ciqikou Ancient Town", "Dazu Rock Carvings (UNESCO)", "Three Gorges cruise (departs here)", "Eling Park panorama"],
+    culture: "The 'Mountain City' has its own fiery personality — literally. Chongqing hotpot culture is a social ritual, and the city's Bayu folk traditions are distinct from anywhere else in China.",
+    food: ["Chongqing hotpot (numbingly spicy!)", "Xiaomian noodles (street classic)", "Suan La Fen glass noodles", "Grilled corn & skewers", "Mao Xuewang (offal hotpot)"]
+  },
+  "Wuhan": {
+    emoji: "🌸", score: 3.5,
+    tagline: "Nine Provinces' Thoroughfare · Yangtze Crossroads",
+    intro: "Central China's beating heart, straddling the Yangtze and Han rivers. Wuhan is a city of bold history, cherry blossoms in spring, and the spiciest instant noodles you'll ever eat.",
+    attractions: ["Yellow Crane Tower (iconic landmark)", "East Lake (China's largest urban lake)", "Hubei Provincial Museum (Marquis Yi bronzes)", "Wuhan University (cherry blossom season, March)", "Guqin Tai Classical Music Platform"],
+    culture: "One of China's 'Four Furnaces' — blazing hot in summer. Rich in revolutionary history, Wuhan also has a massive student population and lively nightlife.",
+    food: ["Re Gan Mian hot dry noodles (breakfast staple!)", "Duck neck snacks (local obsession)", "Doupi tofu skin pancake", "Tofu pudding (bean curd dessert)", "Grilled fish"]
+  },
+  "Xiamen": {
+    emoji: "🏝️", score: 4.5,
+    tagline: "Coastal Gem · Gulangyu Island & Sea Breezes",
+    intro: "One of China's most charming cities, Xiamen enchants visitors with its UNESCO-listed Gulangyu Island, Portuguese architecture, clean beaches, and mild year-round climate.",
+    attractions: ["Gulangyu Island (UNESCO — piano culture, colonial villas)", "Nanputuo Buddhist Temple", "Xiamen University (stunning campus)", "Zengcuoan seaside village", "Fujian Tulou roundhouses (day trip, UNESCO)"],
+    culture: "Hokkien (Minnan) culture ties Xiamen closely to Taiwan and Southeast Asia. Gulangyu's piano-playing tradition earned it the nickname 'Piano Island.'",
+    food: ["Oyster omelette (Háo chī)", "Satay beef noodles", "Peanut soup (dessert)", "Shacha noodles", "Seaweed with sesame (snack)"]
+  },
+  "Xi'an": {
+    emoji: "🗿", score: 5.0,
+    tagline: "Ancient Silk Road Capital · Terracotta Army",
+    intro: "Capital of 13 Chinese dynasties and the eastern terminus of the Silk Road. Xi'an's Terracotta Army alone is a bucket-list wonder — but the city's food and Muslim Quarter are equally unmissable.",
+    attractions: ["Terracotta Army (must-see UNESCO wonder!)", "Xi'an City Wall (cycle around it)", "Giant Wild Goose Pagoda", "Muslim Quarter (Huimin Street)", "Shaanxi History Museum (free, world-class)"],
+    culture: "Layers of Tang Dynasty grandeur and vibrant Hui Muslim culture coexist in Xi'an. The Drum Tower area buzzes with night market energy while ancient gates stand watch.",
+    food: ["Roujiamo (Chinese burger — world's oldest!)", "Biang Biang noodles (belt-wide noodles)", "Yangrou Pao Mo (lamb bread stew)", "Persimmon cakes (Liangpi cold noodles)", "Spiced lamb kebabs"]
+  },
+  "Tianjin": {
+    emoji: "🏛️", score: 3.5,
+    tagline: "Port City · Colonial Architecture & Local Snacks",
+    intro: "Just 30 minutes from Beijing by bullet train, Tianjin is a fascinating blend of five foreign concessions, Baroque architecture, and its own proud food culture.",
+    attractions: ["Five Great Avenues (colonial villas)", "Ancient Culture Street", "Italian Style Town", "Tianjin Eye Ferris wheel (river-mounted!)", "Porcelain House"],
+    culture: "Tianjin's Quyi comedy tradition (cross-talk, or xiangsheng) is famous across China. The city has a distinct Northern Chinese identity, proud of its difference from Beijing.",
+    food: ["Goubuli steamed buns (century-old brand)", "Jianbing guozi (crispy egg crepe)", "Mahua twisted dough fritters", "Tangerines-in-syrup (bingtanghulu)", "Dog-Doesn't-Care baozi"]
+  },
+  "Shenyang": {
+    emoji: "🏰", score: 3.0,
+    tagline: "Manchu Imperial Capital · Northeast China",
+    intro: "The capital of Liaoning and the original home of the Qing Dynasty, Shenyang boasts an imperial palace that rivals Beijing's Forbidden City — with a fraction of the tourists.",
+    attractions: ["Shenyang Imperial Palace (UNESCO — Qing Dynasty)", "Zhaoling Tomb / North Tomb Park (UNESCO)", "Zhang Xueliang's Former Residence", "9·18 Historical Museum", "Zhongjie (local shopping street)"],
+    culture: "Northeast (Dongbei) culture is famously straightforward and warm-hearted. Manchu heritage, Russian architectural traces, and a strong industrial identity define this city.",
+    food: ["Guo Bao Rou (sweet & crispy pork)", "Sauerkraut & pork stew (suancai rou)", "Corn pancakes (boba)", "Harbin-style red sausage", "Pork blood sausage (Dongbei style)"]
+  },
+  "Dalian": {
+    emoji: "⛵", score: 4.0,
+    tagline: "Coastal Playground · Seafood & European Flair",
+    intro: "A surprisingly clean and cosmopolitan coastal city in Liaoning, shaped by Russian and Japanese colonial influences. Dalian's seafood, beaches, and European-style squares are a delight.",
+    attractions: ["Xinghai Square (one of world's largest)", "Binhai Road Scenic Drive (cliff coastline)", "Tiger Beach Ocean Park", "Russian Street (colonial architecture)", "Lüshun (Port Arthur — historic fort area)"],
+    culture: "Dalian has an unusually European feel for a Chinese city — wide boulevards, roundabouts, and a passionate soccer culture make it stand out from other Northeastern cities.",
+    food: ["Sea urchin (uni) sashimi", "Abalone & clam dishes", "Grilled corn on the cob (beach staple)", "Glass shrimp (crystal shrimp, seasonal)", "Dalian-style seafood hotpot"]
+  },
+  "Harbin": {
+    emoji: "❄️", score: 4.0,
+    tagline: "Ice City · Russian Architecture & Winter Wonderland",
+    intro: "China's northernmost major city transforms into a winter fairyland each January. Harbin's Ice and Snow World is one of the world's most spectacular festivals — but the Russian heritage is fascinating year-round.",
+    attractions: ["Ice and Snow World Festival (Jan–Feb, unmissable!)", "Saint Sophia Cathedral (Russian Orthodox)", "Zhongyang Pedestrian Street (colonial buildings)", "Stalin Park (Songhua Riverbank)", "Siberian Tiger Park"],
+    culture: "A strong Russian cultural imprint — from Orthodox churches to European bakeries — gives Harbin a unique identity. The city comes fully alive in winter with ice sculpture art.",
+    food: ["Harbin Red Sausage (Da Hong Chang)", "Kvass bread fermented beer", "Sour cold noodles (liangban mian)", "Smoked sausage platter", "Hot fresh milk (dongbei cold-weather staple)"]
+  },
+  "Qingdao": {
+    emoji: "🍺", score: 4.5,
+    tagline: "By the Sea · Tsingtao Beer & German Heritage",
+    intro: "A breezy, beautiful coastal city in Shandong, Qingdao enchants with its red-roofed Germanic architecture, golden beaches, and the birthplace of China's most famous beer — Tsingtao.",
+    attractions: ["Zhanqiao Pier (iconic postcard view)", "Badaguan Scenic Area (European villas)", "Laoshan Mountain (Taoist sacred mountain, tea)", "Tsingtao Beer Museum", "May 4th Square & coastal promenade"],
+    culture: "German colonial heritage (1898–1919) left an indelible mark — from Gothic churches to a brewing tradition. The International Beer Festival in August draws massive crowds.",
+    food: ["Clam soup (ha la tang — breakfast must!)", "Grilled squid skewers (beach BBQ)", "Tsingtao draft beer (fresh from source!)", "Braised sea cucumber", "Smashed cucumber salad"]
+  },
+  "Nanjing": {
+    emoji: "🏯", score: 4.0,
+    tagline: "Ancient Capital · Ming Dynasty & Salted Duck",
+    intro: "One of China's 'Four Great Ancient Capitals' and a city of profound history — from Ming Dynasty splendor to the Republic of China era. Deeply moving and culturally rich.",
+    attractions: ["Sun Yat-sen Mausoleum (massive, scenic)", "Nanjing City Wall (Ming Dynasty, intact)", "Qinhuai River Scenic Area", "Confucius Temple (Fuzimiao)", "Nanjing Massacre Memorial (sobering but important)"],
+    culture: "Nanjing's identity is shaped by imperial glory and deep tragedy. The Qinhuai River area at night with lanterns and street food is a quintessential Chinese experience.",
+    food: ["Nanjing Salted Duck (most iconic local dish!)", "Duck blood & vermicelli soup", "Pan-fried beef bun", "Lion's Head meatball", "Plum blossom pastry (seasonal)"]
+  },
+  "Hangzhou": {
+    emoji: "🌿", score: 4.5,
+    tagline: "Heaven on Earth · West Lake & Dragon Well Tea",
+    intro: "\"Above is heaven, below are Suzhou and Hangzhou\" — this ancient saying still rings true. West Lake is China's most beloved landscape, and Hangzhou's silk and tea culture are legendary.",
+    attractions: ["West Lake (UNESCO — must cycle or boat)", "Lingyin Buddhist Temple (ancient forest setting)", "Leifeng Pagoda (sunset views)", "China National Silk Museum", "Longjing tea village (pick tea yourself!)"],
+    culture: "Southern Song Dynasty elegance permeates everything — classical gardens, refined silk weaving, and a serene aesthetic that influenced East Asian culture for centuries.",
+    food: ["Dongpo Pork (red-braised pork belly masterpiece)", "Beggar's Chicken (mud-baked whole chicken)", "West Lake Fish in Vinegar Sauce", "Longjing Shrimp (tea-infused stir-fry)", "Lotus root with glutinous rice"]
+  },
+  "Kunming": {
+    emoji: "🌺", score: 4.0,
+    tagline: "Spring City · Gateway to Yunnan's Wonders",
+    intro: "Blessed with near-perfect spring weather year-round, Kunming is the gateway to Yunnan's extraordinary landscapes, colorful minority cultures, and the Stone Forest.",
+    attractions: ["Stone Forest — Shilin (UNESCO karst formation)", "Dian Lake & Western Hills scenic area", "Yunnan Nationalities Village", "Green Lake Park (seagulls in winter!)", "Dali & Lijiang (classic day/overnight trips)"],
+    culture: "Yunnan is home to 25 ethnic minority groups. Kunming's lively café culture, colorful markets, and proximity to Southeast Asia give it a uniquely relaxed, international vibe.",
+    food: ["Crossing Bridge Rice Noodles (Guoqiao Mixian — Yunnan's signature dish)", "Steam-pot chicken (qi guo ji)", "Yunnan goat cheese (rubing)", "Fried cheese with chili", "Wild mushroom hotpot (summer)"]
+  },
+  "Nanning": {
+    emoji: "🌴", score: 3.5,
+    tagline: "Green City · Zhuang Culture & ASEAN Gateway",
+    intro: "The subtropical capital of Guangxi, lush and green year-round. Nanning is the heartland of the Zhuang people — China's largest ethnic minority — and a rising hub for China-ASEAN relations.",
+    attractions: ["Qingxiu Mountain Scenic Area (peaceful, city views)", "Guangxi Museum (excellent Zhuang bronzeware)", "Detian Transnational Waterfall (China-Vietnam border day trip!)", "Nanning Night Market", "Longhu Mountain Scenic Area"],
+    culture: "The Zhuang ethnic culture fills Nanning with color, particularly during the Sanyuesan (March 3rd) song festival. Vietnamese food influences are strong given the proximity to the border.",
+    food: ["Lao You Fen (Nanning's signature rice noodle)", "Liuzhou Snail Rice Noodles (luosifen)", "Zhuang five-colored sticky rice", "BBQ duck & pork (night market staple)", "Fresh sugarcane juice"]
+  },
+  "Zhengzhou": {
+    emoji: "🏺", score: 3.5,
+    tagline: "Cradle of Chinese Civilization · Shaolin Kungfu",
+    intro: "At the heart of ancient China, Zhengzhou and its surrounding Henan province is where Chinese civilization was born. Shaolin Monastery and Longmen Grottoes are nearby UNESCO masterpieces.",
+    attractions: ["Shaolin Monastery (birthplace of Kung Fu — 90 min away)", "Longmen Grottoes (UNESCO Buddhist stone carvings — 90 min)", "Yellow River Scenic Area", "Henan Museum (world-class bronze age artifacts)", "Songshan Mountain & Zhongyue Temple"],
+    culture: "Standing at the crossroads of Chinese history, Zhengzhou is surrounded by some of the most important ancient sites in the world. Henan Zhuizi folk music and Henan opera are local cultural treasures.",
+    food: ["Henan Braised Noodles (hui mian — broad, chewy)", "Mutton soup with flatbread", "Shanggai Mo pancake (stuffed flatbread)", "Braised Donkey meat (nearby Kaifeng)", "Kaifeng soup dumplings (nearby)"]
+  },
+  "Changsha": {
+    emoji: "🌶️", score: 4.0,
+    tagline: "Mao's Birthplace · Stinky Tofu & Night Life",
+    intro: "Hunan's vibrant capital is the birthplace of Mao Zedong and a city obsessed with spicy food, celebrity culture, and nightlife. One of China's fastest-growing entertainment hubs.",
+    attractions: ["Orange Island (giant young Mao sculpture, river views)", "Yuelu Mountain & Academy (ancient learning)", "Hunan Provincial Museum (Lady Dai — 2,000-year-old preserved body)", "Tianxin Ancient City Wall & Pavilion", "IFS International Shopping Center rooftop panda"],
+    culture: "Changsha has become China's entertainment capital — home to powerhouse TV production companies and a nightlife scene on Jiefang West Road that rivals Shanghai. The stinky tofu smell hits you before you see the stalls.",
+    food: ["Stinky tofu (chou doufu — smellier = better)", "Mao's Red Braised Pork (Hong Shao Rou)", "Spicy crayfish (ma la xiao long xia)", "Pork ribs with dried chili", "Sugar painting (tang hua — street art you eat)"]
+  },
+  "Guiyang": {
+    emoji: "🌊", score: 3.5,
+    tagline: "Hidden Gem · Waterfalls & Miao Culture",
+    intro: "The capital of Guizhou province remains one of China's best-kept travel secrets. Surrounded by spectacular karst landscapes and rich in Miao and Dong ethnic minority culture.",
+    attractions: ["Huangguoshu Waterfall (China's largest — 2 hrs away)", "Qianling Mountain & Hongfu Temple (monkeys!)", "Jiaxiu Pavilion (on the Nanming River)", "Miao silver & embroidery villages (nearby)", "Zhijin Cave (massive limestone cave system)"],
+    culture: "Guizhou's Miao people are famous for their elaborate silver jewelry, intricate embroidery, and Lusheng reed-pipe music. The sour soup hotpot culture here is unlike anywhere else in China.",
+    food: ["Huaxi Beef Noodles (Guiyang breakfast staple)", "Sour soup hotpot (sui tang huo guo — uniquely tangy)", "Spicy tofu pudding (suanla douhua)", "Roasted rice sausage (kaolei chang)", "Miao rice wine (mija)"]
+  },
+  "Hefei": {
+    emoji: "🔬", score: 2.5,
+    tagline: "Emerging Tech Hub · Anhui Culture Base",
+    intro: "The capital of Anhui province is a rapidly developing city known more to business travelers than tourists, but it's a convenient base for day trips to Yellow Mountain — one of China's most spectacular peaks.",
+    attractions: ["Bao Gong Memorial Park (dedicated to Song Dynasty judge Bao Zheng)", "Chaohu Lake (one of China's five largest freshwater lakes)", "Anhui Provincial Museum", "Li Hongzhang's Ancestral Hall (Qing Dynasty)", "Huangshan (Yellow Mountain, UNESCO — 2 hrs away, highly recommended!)"],
+    culture: "Anhui's Huizhou merchant culture and distinctive black-and-white architecture are fascinating. Huangmei opera is the local traditional art form. Hefei is home to China's advanced photon science facilities.",
+    food: ["Stinky Mandarin Fish (chou guiyu — Anhui's most famous dish!)", "Li Hongzhang Chop Suey (mixed stew)", "Anhui pickled bamboo shoots dishes", "Stuffed tofu with pork", "Three-layer bao (crispy layered pastry)"]
+  },
+  "Shijiazhuang": {
+    emoji: "🏔️", score: 2.5,
+    tagline: "Hebei Capital · Gateway to Historic Sites",
+    intro: "Shijiazhuang is not China's most glamorous city, but it's a great transit base for day trips to stunning Cangyan Mountain, the magnificent Zhengding monasteries, and revolutionary heritage sites.",
+    attractions: ["Cangyan Mountain Scenic Area (dramatic gorge & hanging temple)", "Longxing Monastery, Zhengding (Tang Dynasty — 1,400 years old)", "Zhaozhou Bridge (world's oldest existing stone arch bridge!)", "Xibaipo Revolutionary Memorial (CPC's command base, 1947–49)", "Zhili Governor's Residence, Baoding (nearby)"],
+    culture: "Hebei province was the heartland of the revolutionary period — Xibaipo is where Mao Zedong directed the final campaigns of the Civil War. Local Hebei Bangzi clapper opera is lively and distinct.",
+    food: ["Donkey meat burger (lv rou huo shao — Hebei's most famous street food!)", "Zhengding stuffed tofu (doufu nao)", "Anguo medicinal herbal cuisine (unique regional specialty)", "Baoding donkey meat fire — crispy pastry with donkey filling", "Hebei-style lamb skewers"]
+  }
+};
+
 const MAJOR_AIRPORTS = [
   "Beijing Capital (PEK)","Beijing Daxing (PKX)","Shanghai Pudong (PVG)",
   "Shanghai Hongqiao (SHA)","Guangzhou Baiyun (CAN)","Shenzhen (SZX)",
@@ -1222,7 +1524,7 @@ function renderResults(c) {
         </div>
         <div style="font-size:.8rem;font-weight:600;color:var(--gray-700);margin-bottom:8px">📍 Available cities:</div>
         <div class="tag-list">
-          ${TWOV_CITIES.map(city => `<span class="tag tag-city">${city}</span>`).join('')}
+          ${TWOV_CITIES.map(city => `<span class="tag tag-city" onclick="showCityModal('${city.replace("'","&#39;")}')" title="Click to explore ${city}">${city}</span>`).join('')}
         </div>
         <div class="twov-req">
           <strong>Requirements:</strong><br>
@@ -1276,6 +1578,82 @@ function renderResults(c) {
 
   resultsDiv.innerHTML = html;
 }
+
+// ── City Modal ──
+function renderStars(score) {
+  const full  = Math.floor(score);
+  const half  = (score % 1) >= 0.5;
+  const empty = 5 - full - (half ? 1 : 0);
+  return '<span style="color:#fbbf24">' + '★'.repeat(full) + (half ? '½' : '') + '</span>'
+       + '<span style="color:#d1d5db">' + '★'.repeat(empty) + '</span>';
+}
+
+function showCityModal(cityName) {
+  const d = CITY_DATA[cityName];
+  if (!d) return;
+
+  document.getElementById('cmEmoji').textContent   = d.emoji;
+  document.getElementById('cmName').textContent    = cityName;
+  document.getElementById('cmTagline').textContent = d.tagline;
+  document.getElementById('cmStars').innerHTML     = renderStars(d.score);
+  document.getElementById('cmScoreNum').textContent = d.score.toFixed(1) + ' / 5';
+
+  document.getElementById('cmBody').innerHTML = `
+    <div class="cm-section">
+      <div class="cm-section-head">
+        <div class="cm-section-icon">🏙️</div>Overview
+      </div>
+      <p class="cm-text">${d.intro}</p>
+    </div>
+
+    <div class="cm-section">
+      <div class="cm-section-head">
+        <div class="cm-section-icon">📸</div>Top Attractions
+      </div>
+      <div class="cm-tags">
+        ${d.attractions.map(a => `<span class="cm-tag cm-tag-spot">${a}</span>`).join('')}
+      </div>
+    </div>
+
+    <div class="cm-section">
+      <div class="cm-section-head">
+        <div class="cm-section-icon">🎭</div>Culture & Vibe
+      </div>
+      <p class="cm-text">${d.culture}</p>
+    </div>
+
+    <div class="cm-section">
+      <div class="cm-section-head">
+        <div class="cm-section-icon">🍜</div>Must-Try Food
+      </div>
+      <div class="cm-tags">
+        ${d.food.map(f => `<span class="cm-tag cm-tag-food">${f}</span>`).join('')}
+      </div>
+    </div>
+  `;
+
+  document.getElementById('cityModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCityModal(e) {
+  // Close if clicking the overlay background (not the modal itself)
+  if (e && e.target !== document.getElementById('cityModalOverlay')) return;
+  document.getElementById('cityModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Wire up close button and Escape key
+document.getElementById('cmClose').addEventListener('click', () => {
+  document.getElementById('cityModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.getElementById('cityModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
 
 // ── Share functions ──
 function copyLink(code) {
