@@ -3,259 +3,802 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Instantly check if your passport allows visa-free entry to China — stay duration, entry ports, transit options, and Hainan FTP policy.">
+
+  <!-- ── Primary SEO ── -->
   <title>China Entry Guide — Visa-Free &amp; Transit Checker</title>
+  <meta name="description" content="Instantly check if your passport allows visa-free entry to China — stay duration, entry ports, 144h transit (TWOV), and Hainan FTP policy. 130+ countries covered.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nihaochina.cc/">
+
+  <!-- ── Open Graph ── -->
+  <meta property="og:type"         content="website">
+  <meta property="og:url"          content="https://nihaochina.cc/">
+  <meta property="og:site_name"    content="Nihao China — China Entry Guide">
+  <meta property="og:title"        content="China Entry Guide — Visa-Free &amp; Transit Checker">
+  <meta property="og:description"  content="Instantly check if your passport allows visa-free entry to China. 130+ countries, stay limits, TWOV transit, and Hainan FTP policy.">
+  <meta property="og:image"        content="https://nihaochina.cc/og.png">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- ── Twitter Card ── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="China Entry Guide — Visa-Free Checker">
+  <meta name="twitter:description" content="Check if your passport allows visa-free entry to China. 130+ countries covered.">
+  <meta name="twitter:image"       content="https://nihaochina.cc/og.png">
+
+  <!-- ── JSON-LD ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "China Entry Guide",
+    "url": "https://nihaochina.cc/",
+    "description": "Check visa-free entry eligibility for China by passport country. Covers 130+ countries with stay limits, transit options, and Hainan FTP policy.",
+    "applicationCategory": "TravelApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "en",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --red:       #CC1A1A;
       --red-dark:  #8B0000;
+      --red-light: #fef2f2;
       --gold:      #D4A017;
       --green:     #16a34a;
+      --green-bg:  #dcfce7;
       --amber:     #b45309;
       --blue:      #0369a1;
       --gray-50:   #f9fafb;
       --gray-100:  #f3f4f6;
       --gray-200:  #e5e7eb;
+      --gray-300:  #d1d5db;
       --gray-400:  #9ca3af;
       --gray-500:  #6b7280;
       --gray-600:  #4b5563;
+      --gray-700:  #374151;
       --gray-800:  #1f2937;
-      --shadow:    0 1px 3px rgba(0,0,0,.10), 0 1px 2px rgba(0,0,0,.06);
-      --shadow-lg: 0 8px 24px rgba(0,0,0,.13);
-      --radius:    14px;
-      --radius-sm: 8px;
+      --gray-900:  #111827;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.08);
+      --shadow:    0 2px 8px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05);
+      --shadow-lg: 0 10px 30px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+      --radius:    16px;
+      --radius-sm: 10px;
+      --radius-xs: 6px;
     }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--gray-50);
+      background: #f5f6f8;
       color: var(--gray-800);
       line-height: 1.55;
       min-height: 100vh;
     }
 
-    /* ─── Hero ─── */
+    /* ════════════════════════════════════════
+       ANIMATIONS
+    ════════════════════════════════════════ */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes flagFloat {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+    @keyframes chipIn {
+      from { opacity: 0; transform: scale(.92) translateY(4px); }
+      to   { opacity: 1; transform: scale(1)   translateY(0); }
+    }
+
+    /* ════════════════════════════════════════
+       HERO — MODERN REDESIGN
+    ════════════════════════════════════════ */
     .hero {
-      background: linear-gradient(150deg, var(--red-dark) 0%, var(--red) 55%, #a01010 100%);
-      color: #fff;
-      padding: 52px 20px 44px;
-      text-align: center;
+      background: #fff;
+      border-bottom: 1px solid var(--gray-200);
       position: relative;
       overflow: hidden;
     }
-    .hero::before {
+
+    /* Decorative red band at top */
+    .hero-band {
+      background: linear-gradient(135deg, var(--red-dark) 0%, var(--red) 60%, #e02020 100%);
+      padding: 36px 20px 58px;
+      position: relative;
+      text-align: center;
+      color: #fff;
+    }
+    .hero-band::after {
+      content: '';
+      position: absolute; bottom: -1px; left: 0; right: 0;
+      height: 40px;
+      background: #fff;
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    /* subtle dot-pattern overlay */
+    .hero-band::before {
       content: '';
       position: absolute; inset: 0;
-      background-image: radial-gradient(circle at 20% 80%, rgba(255,255,255,.06) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255,255,255,.04) 0%, transparent 50%);
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.12) 1px, transparent 1px);
+      background-size: 28px 28px;
       pointer-events: none;
     }
-    .hero-inner { position: relative; max-width: 560px; margin: 0 auto; }
-    .hero-flag  { font-size: 52px; margin-bottom: 14px; display: block; }
-    .hero h1    { font-size: 2rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: 8px; }
-    .hero p     { font-size: 1rem; opacity: .82; margin-bottom: 30px; }
+
+    .hero-inner {
+      position: relative;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .hero-flag {
+      font-size: 48px;
+      display: block;
+      margin-bottom: 14px;
+      animation: flagFloat 4s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 50px;
+      padding: 4px 13px;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .hero h1 .accent {
+      background: linear-gradient(90deg, #ffd700, #ffa500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: .97rem;
+      opacity: .82;
+      margin-bottom: 0;
+    }
+
+    /* Search section below the band */
+    .hero-search-section {
+      padding: 0 20px 24px;
+      max-width: 640px;
+      margin: -22px auto 0;
+      position: relative;
+      z-index: 2;
+    }
 
     /* ─── Search ─── */
-    .search-wrapper { position: relative; max-width: 420px; margin: 0 auto; }
+    .search-wrapper { position: relative; }
     .search-input {
-      width: 100%; padding: 15px 48px 15px 18px;
+      width: 100%;
+      padding: 16px 54px 16px 20px;
       font-size: 1rem; font-family: inherit;
-      border: none; border-radius: 50px;
-      background: #fff; color: var(--gray-800);
-      box-shadow: var(--shadow-lg); outline: none;
-      cursor: pointer; transition: box-shadow .2s;
+      border: 2px solid var(--gray-200);
+      border-radius: 50px;
+      background: #fff;
+      color: var(--gray-800);
+      box-shadow: var(--shadow-lg);
+      outline: none;
+      cursor: pointer;
+      transition: border-color .2s, box-shadow .2s;
     }
-    .search-input:focus { box-shadow: 0 0 0 3px rgba(212,160,23,.45), var(--shadow-lg); }
+    .search-input:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 4px rgba(204,26,26,.12), var(--shadow-lg);
+    }
     .search-input::placeholder { color: var(--gray-400); }
     .search-icon {
-      position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
-      color: var(--gray-400); pointer-events: none; font-size: 17px;
+      position: absolute; right: 18px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-400); pointer-events: none;
+      font-size: 16px;
     }
+
+    /* ─── Stats row ─── */
+    .hero-stats {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; flex-wrap: wrap;
+      margin-top: 16px;
+      font-size: .79rem;
+      color: var(--gray-500);
+      font-weight: 500;
+    }
+    .hero-stats .hs-item {
+      display: flex; align-items: center; gap: 5px;
+    }
+    .hero-stats .hs-sep { color: var(--gray-300); }
 
     /* ─── Dropdown ─── */
     .dropdown {
-      position: absolute; top: calc(100% + 8px); left: 0; right: 0;
-      background: #fff; border-radius: var(--radius);
+      position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+      background: #fff;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius);
       box-shadow: var(--shadow-lg);
-      max-height: 320px; overflow-y: auto; z-index: 200;
+      max-height: 400px; overflow-y: auto;
+      z-index: 200;
       display: none;
     }
-    .dropdown.open { display: block; }
+    .dropdown.open { display: block; animation: slideDown .16s ease-out; }
     .dropdown::-webkit-scrollbar { width: 5px; }
     .dropdown::-webkit-scrollbar-thumb { background: var(--gray-200); border-radius: 3px; }
+
+    .drop-header {
+      padding: 10px 16px;
+      font-size: .73rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .07em;
+      color: var(--gray-400);
+      border-bottom: 1px solid var(--gray-100);
+      position: sticky; top: 0;
+      background: #fff;
+    }
     .drop-item {
       padding: 11px 16px; cursor: pointer;
       display: flex; align-items: center; gap: 10px;
       border-bottom: 1px solid var(--gray-100);
-      transition: background .12s;
+      transition: background .1s;
     }
     .drop-item:last-child { border-bottom: none; }
-    .drop-item:hover { background: var(--gray-50); }
-    .drop-item .di-flag { font-size: 20px; }
-    .drop-item .di-name { font-size: .93rem; color: var(--gray-800); }
-    .drop-item .di-region { font-size: .78rem; color: var(--gray-400); margin-left: auto; }
-    .drop-no { padding: 20px; color: var(--gray-400); text-align: center; font-size: .9rem; }
+    .drop-item:hover { background: #fef8f8; }
+    .di-flag   { font-size: 20px; flex-shrink: 0; }
+    .di-name   { font-size: .91rem; color: var(--gray-800); flex: 1; }
+    .di-status { font-size: .72rem; font-weight: 600; padding: 2px 8px; border-radius: 50px; flex-shrink: 0; }
+    .di-vf     { background: var(--green-bg); color: #15803d; }
+    .di-req    { background: #fee2e2; color: #dc2626; }
+    .drop-no   { padding: 20px; color: var(--gray-400); text-align: center; font-size: .9rem; }
 
-    /* ─── Main ─── */
-    .main { max-width: 780px; margin: 0 auto; padding: 32px 20px 60px; }
+    /* ════════════════════════════════════════
+       MAIN CONTENT AREA
+    ════════════════════════════════════════ */
+    .main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+    @media (max-width: 480px) {
+      .main { padding: 20px 14px 50px; }
+    }
+
+    /* ─── Popular chips ─── */
+    .popular-section { text-align: center; padding: 8px 0 32px; }
+    .popular-label {
+      font-size: .72rem; text-transform: uppercase;
+      letter-spacing: .09em; color: var(--gray-400);
+      font-weight: 600; margin-bottom: 14px;
+    }
+    .chip-grid {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 8px;
+      max-width: 640px; margin: 0 auto;
+    }
+    .chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 15px; border-radius: 50px;
+      background: #fff;
+      border: 1.5px solid var(--gray-200);
+      cursor: pointer;
+      font-size: .86rem; font-weight: 500;
+      color: var(--gray-700);
+      transition: background .15s, border-color .15s, color .15s, transform .15s, box-shadow .15s;
+      box-shadow: var(--shadow-sm);
+      animation: chipIn .4s ease both;
+    }
+    .chip:nth-child(1)  { animation-delay: .04s; }
+    .chip:nth-child(2)  { animation-delay: .07s; }
+    .chip:nth-child(3)  { animation-delay: .10s; }
+    .chip:nth-child(4)  { animation-delay: .13s; }
+    .chip:nth-child(5)  { animation-delay: .16s; }
+    .chip:nth-child(6)  { animation-delay: .19s; }
+    .chip:nth-child(7)  { animation-delay: .22s; }
+    .chip:nth-child(8)  { animation-delay: .25s; }
+    .chip:nth-child(9)  { animation-delay: .28s; }
+    .chip:nth-child(10) { animation-delay: .31s; }
+    .chip:nth-child(11) { animation-delay: .34s; }
+    .chip:nth-child(12) { animation-delay: .37s; }
+    .chip:hover {
+      background: var(--red); color: #fff;
+      border-color: var(--red);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(204,26,26,.3);
+    }
+    .chip .chip-flag { font-size: 17px; }
 
     /* ─── Empty state ─── */
-    .empty-state { text-align: center; padding: 64px 20px; color: var(--gray-400); }
-    .empty-state .ei { font-size: 60px; margin-bottom: 14px; }
-    .empty-state p { font-size: 1rem; }
-
-    /* ─── Result header ─── */
-    .res-head { text-align: center; margin-bottom: 24px; }
-    .res-country {
-      font-size: 1.55rem; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      gap: 12px; margin-bottom: 10px;
+    .empty-state {
+      text-align: center;
+      padding: 44px 20px 16px;
     }
-    .res-country .cf { font-size: 2rem; }
+    .empty-state .ei    { font-size: 52px; margin-bottom: 10px; }
+    .empty-state .es-title {
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--gray-700); margin-bottom: 6px;
+    }
+    .empty-state p { font-size: .9rem; color: var(--gray-400); }
 
-    /* ─── Status badge ─── */
+    /* ════════════════════════════════════════
+       RESULTS AREA
+    ════════════════════════════════════════ */
+    .res-animated { animation: fadeInUp .28s ease-out; }
+
+    /* ─── Result header card ─── */
+    .res-header-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .res-country {
+      font-size: 1.5rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; margin-bottom: 12px;
+      letter-spacing: -.02em;
+    }
+    .res-country .cf { font-size: 2.2rem; }
+
     .badge {
-      display: inline-flex; align-items: center; gap: 5px;
-      padding: 5px 15px; border-radius: 50px;
-      font-size: .87rem; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 18px; border-radius: 50px;
+      font-size: .88rem; font-weight: 700;
     }
     .badge-free     { background: #dcfce7; color: #15803d; }
     .badge-required { background: #fee2e2; color: #dc2626; }
-    .badge-partial  { background: #fef9c3; color: #a16207; }
 
-    /* ─── Warning box ─── */
+    /* ─── Share bar ─── */
+    .share-bar {
+      display: flex; gap: 8px; justify-content: center;
+      margin-top: 16px; flex-wrap: wrap;
+    }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 16px; border-radius: 50px;
+      font-size: .80rem; font-weight: 600;
+      cursor: pointer;
+      border: 1.5px solid var(--gray-200);
+      background: #fff; color: var(--gray-600);
+      transition: border-color .15s, color .15s, background .15s, transform .15s;
+    }
+    .share-btn:hover { border-color: var(--gray-400); background: var(--gray-50); transform: translateY(-1px); }
+    .share-btn.copied { border-color: var(--green); color: var(--green); background: #f0fdf4; }
+    .share-btn.x-btn:hover { border-color: #000; color: #000; }
+
+    /* ─── Warning / info boxes ─── */
     .warn-box {
-      background: #fffbeb; border: 1px solid #fde68a;
-      border-radius: var(--radius-sm); padding: 12px 15px;
+      background: #fffbeb; border: 1.5px solid #fde68a;
+      border-radius: var(--radius-sm); padding: 12px 16px;
       font-size: .84rem; color: #92400e;
       display: flex; gap: 8px; align-items: flex-start;
-      margin-bottom: 16px;
-    }
-    .warn-box a { color: #b45309; }
-
-    /* ─── Info box ─── */
-    .info-box {
-      background: #eff6ff; border: 1px solid #bfdbfe;
-      border-radius: var(--radius-sm); padding: 12px 15px;
-      font-size: .84rem; color: #1e40af;
-      display: flex; gap: 8px; align-items: flex-start;
-      margin-bottom: 16px;
-    }
-
-    /* ─── Cards grid ─── */
-    .cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
-    @media (max-width: 540px) { .cards-2 { grid-template-columns: 1fr; } }
-
-    .card {
-      background: #fff; border-radius: var(--radius);
-      padding: 20px; box-shadow: var(--shadow);
-    }
-    .card-icon  { font-size: 26px; margin-bottom: 8px; }
-    .card-label {
-      font-size: .74rem; text-transform: uppercase;
-      letter-spacing: .07em; color: var(--gray-400);
-      font-weight: 600; margin-bottom: 4px;
-    }
-    .card-val { font-size: 1.4rem; font-weight: 700; }
-    .cv-green  { color: var(--green); }
-    .cv-amber  { color: var(--amber); }
-    .cv-red    { color: #dc2626; }
-    .card-sub  { font-size: .8rem; color: var(--gray-500); margin-top: 3px; }
-
-    /* ─── Full-width card ─── */
-    .card-full {
-      background: #fff; border-radius: var(--radius);
-      padding: 20px; box-shadow: var(--shadow);
       margin-bottom: 14px;
     }
-    .card-full .cf-title {
-      font-size: .74rem; text-transform: uppercase;
-      letter-spacing: .07em; color: var(--gray-400);
-      font-weight: 600; margin-bottom: 12px;
-      display: flex; align-items: center; gap: 6px;
+    .warn-box a { color: #b45309; font-weight: 600; }
+    .info-box {
+      background: #eff6ff; border: 1.5px solid #bfdbfe;
+      border-radius: var(--radius-sm); padding: 12px 16px;
+      font-size: .84rem; color: #1e40af;
+      display: flex; gap: 8px; align-items: flex-start;
+      margin-bottom: 14px;
     }
 
-    /* ─── Tags ─── */
+    /* ─── Stats grid (replaces cards-2) ─── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    @media (max-width: 480px) { .stats-grid { grid-template-columns: 1fr; } }
+
+    .stat-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: flex; align-items: flex-start; gap: 14px;
+      transition: transform .18s, box-shadow .18s;
+    }
+    .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+    .stat-icon-wrap {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .si-green { background: #dcfce7; }
+    .si-red   { background: #fee2e2; }
+    .si-amber { background: #fef3c7; }
+    .si-blue  { background: #dbeafe; }
+
+    .stat-body { flex: 1; min-width: 0; }
+    .stat-label {
+      font-size: .72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .07em;
+      color: var(--gray-400); margin-bottom: 3px;
+    }
+    .stat-value { font-size: 1.45rem; font-weight: 800; line-height: 1.1; }
+    .sv-green { color: var(--green); }
+    .sv-red   { color: #dc2626; }
+    .sv-amber { color: var(--amber); }
+    .stat-sub { font-size: .79rem; color: var(--gray-400); margin-top: 3px; }
+
+    /* ─── Section card (full width) ─── */
+    .section-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+      transition: transform .18s, box-shadow .18s;
+    }
+    .section-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .sc-header {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 14px;
+    }
+    .sc-icon {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      background: var(--gray-100);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .sc-title {
+      font-size: .92rem; font-weight: 700;
+      color: var(--gray-800);
+    }
+    .sc-sub {
+      font-size: .78rem; color: var(--gray-400);
+    }
+
+    /* ─── Tag lists ─── */
     .tag-list { display: flex; flex-wrap: wrap; gap: 7px; }
     .tag {
-      padding: 4px 11px; border-radius: 50px;
+      padding: 4px 12px; border-radius: 50px;
       font-size: .79rem; font-weight: 500;
     }
-    .tag-port   { background: var(--gray-100); color: var(--gray-600); }
-    .tag-city   { background: #eff6ff; color: #2563eb; }
-    .tag-note   { font-size: .8rem; color: var(--gray-500); margin-top: 10px; line-height: 1.6; }
+    .tag-port { background: var(--gray-100); color: var(--gray-600); }
+    .tag-city { background: #dbeafe; color: #1d4ed8; }
+    .tag-note {
+      font-size: .8rem; color: var(--gray-500);
+      margin-top: 10px; line-height: 1.6;
+    }
+
+    /* ─── TWOV requirements ─── */
+    .twov-req {
+      margin-top: 14px;
+      padding: 14px 16px;
+      background: #f8fafc;
+      border-radius: var(--radius-xs);
+      font-size: .82rem;
+      color: var(--gray-700);
+      line-height: 1.8;
+      border-left: 3px solid var(--blue);
+    }
+    .twov-req strong { color: var(--gray-800); }
 
     /* ─── Hainan card ─── */
     .hainan-card {
-      background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
-      color: #fff; border-radius: var(--radius);
-      padding: 20px; margin-bottom: 14px;
+      background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 60%, #0284c7 100%);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-bottom: 14px;
       box-shadow: var(--shadow);
+      transition: transform .18s, box-shadow .18s;
     }
-    .hainan-card .hc-title { font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
-    .hainan-card .hc-sub   { font-size: .85rem; opacity: .88; line-height: 1.65; }
+    .hainan-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .hainan-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+    }
+    .hainan-icon {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,.18);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .hainan-title { font-weight: 700; font-size: 1rem; }
+    .hainan-body  { font-size: .85rem; opacity: .88; line-height: 1.7; }
 
     /* ─── Visa apply card ─── */
     .apply-card {
-      background: #fff; border-radius: var(--radius);
-      padding: 20px; box-shadow: var(--shadow);
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
       margin-bottom: 14px;
+      transition: transform .18s, box-shadow .18s;
+      border-top: 3px solid var(--red);
     }
-    .apply-card .ac-title {
-      font-weight: 700; font-size: .97rem; margin-bottom: 10px;
-      display: flex; align-items: center; gap: 7px;
+    .apply-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .apply-title {
+      font-weight: 700; font-size: .97rem;
+      margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
     }
-    .apply-card p { font-size: .87rem; color: var(--gray-600); line-height: 1.7; }
-    .apply-card ul { font-size: .87rem; color: var(--gray-600); line-height: 1.8; padding-left: 18px; margin-top: 8px; }
+    .apply-card p  { font-size: .87rem; color: var(--gray-600); line-height: 1.7; }
+    .apply-card ul { font-size: .87rem; color: var(--gray-600); line-height: 1.85; padding-left: 20px; margin-top: 10px; }
 
-    /* ─── Disclaimer ─── */
+    /* ════════════════════════════════════════
+       DISCOVER CHINA SECTION
+    ════════════════════════════════════════ */
+    .discover-section {
+      margin-top: 48px;
+      padding-top: 36px;
+      border-top: 1px solid var(--gray-200);
+    }
+    .discover-section-head {
+      display: flex; align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 20px; gap: 12px;
+    }
+    .discover-section-head h2 {
+      font-size: 1.35rem; font-weight: 800;
+      letter-spacing: -.02em; color: var(--gray-900);
+    }
+    .discover-section-head p {
+      font-size: .84rem; color: var(--gray-400);
+      margin-top: 2px;
+    }
+    .discover-coming-badge {
+      flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #fef3c7; color: #92400e;
+      border: 1px solid #fde68a;
+      border-radius: 50px; padding: 4px 12px;
+      font-size: .73rem; font-weight: 600;
+    }
+
+    .discover-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    @media (max-width: 480px) { .discover-grid { grid-template-columns: 1fr 1fr; gap: 10px; } }
+    @media (max-width: 360px) { .discover-grid { grid-template-columns: 1fr; } }
+
+    .discover-card {
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .18s, box-shadow .18s;
+      cursor: pointer;
+    }
+    .discover-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+    .dc-thumb {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .dc-thumb-bg {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 56px; opacity: .15;
+    }
+    .dc-play {
+      width: 44px; height: 44px;
+      background: rgba(0,0,0,.55);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 18px;
+      position: relative; z-index: 1;
+      padding-left: 3px;
+    }
+    .dc-thumb-label {
+      position: absolute; bottom: 8px; right: 8px;
+      background: rgba(0,0,0,.65); color: #fff;
+      font-size: .68rem; font-weight: 600;
+      padding: 2px 7px; border-radius: 4px;
+    }
+
+    .dc-body { padding: 13px 14px 14px; }
+    .dc-tag {
+      font-size: .68rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .06em;
+      color: var(--red); margin-bottom: 4px;
+    }
+    .dc-title {
+      font-size: .88rem; font-weight: 700;
+      color: var(--gray-800); line-height: 1.35;
+      margin-bottom: 4px;
+    }
+    .dc-meta {
+      font-size: .74rem; color: var(--gray-400);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .dc-add-card {
+      border: 2px dashed var(--gray-200);
+      background: transparent;
+      box-shadow: none;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      min-height: 160px;
+      gap: 8px; padding: 20px;
+      text-align: center;
+    }
+    .dc-add-card:hover { border-color: var(--red); background: #fff4f4; box-shadow: none; }
+    .dc-add-icon { font-size: 28px; color: var(--gray-300); }
+    .dc-add-text { font-size: .82rem; color: var(--gray-400); font-weight: 500; }
+
+    /* ─── Gradient colors for placeholder thumbs ─── */
+    .dc-thumb-1 { background: linear-gradient(135deg, #b91c1c 0%, #ef4444 100%); }
+    .dc-thumb-2 { background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%); }
+    .dc-thumb-3 { background: linear-gradient(135deg, #14532d 0%, #16a34a 100%); }
+    .dc-thumb-4 { background: linear-gradient(135deg, #7c2d12 0%, #ea580c 100%); }
+
+    /* ════════════════════════════════════════
+       DISCLAIMER + FOOTER
+    ════════════════════════════════════════ */
     .disclaimer {
-      background: var(--gray-100); border-radius: var(--radius-sm);
-      padding: 12px 16px; font-size: .78rem; color: var(--gray-500);
-      text-align: center; margin-top: 28px;
-    }
-    .disclaimer a { color: var(--red); text-decoration: none; }
-
-    /* ─── Footer ─── */
-    footer {
-      text-align: center; padding: 22px;
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
       font-size: .78rem; color: var(--gray-400);
-      border-top: 1px solid var(--gray-200); margin-top: 20px;
+      text-align: center; margin-top: 36px;
+      line-height: 1.7;
     }
+    .disclaimer a { color: var(--red); text-decoration: none; font-weight: 500; }
+
+    footer {
+      text-align: center; padding: 24px;
+      font-size: .78rem; color: var(--gray-400);
+      border-top: 1px solid var(--gray-200);
+      margin-top: 20px;
+    }
+    footer a { color: var(--gray-400); text-decoration: none; }
+    footer a:hover { color: var(--red); }
   </style>
 </head>
 <body>
 
-<!-- ═══════════════════ HERO ═══════════════════ -->
+<!-- ═══════════════════════════════════════════════
+     HERO — MODERN REDESIGN
+════════════════════════════════════════════════ -->
 <div class="hero">
-  <div class="hero-inner">
-    <span class="hero-flag">🇨🇳</span>
-    <h1>China Entry Guide</h1>
-    <p>Select your passport country — instantly see visa rules, max stay, entry ports &amp; transit options</p>
+  <div class="hero-band">
+    <div class="hero-inner">
+      <span class="hero-flag">🇨🇳</span>
+      <div class="hero-kicker">✈️ Free Travel Tool · Updated 2026</div>
+      <h1>Can I Enter <span class="accent">China</span> Visa-Free?</h1>
+      <p class="hero-sub">Instant passport check — visa policy, stay limits, transit &amp; Hainan FTP</p>
+    </div>
+  </div>
+
+  <div class="hero-search-section">
     <div class="search-wrapper" id="searchWrapper">
       <input type="text" id="searchInput" class="search-input"
-             placeholder="🔍  Search your passport country…" autocomplete="off">
-      <span class="search-icon">▼</span>
+             placeholder="🔍  Search or select your passport country…" autocomplete="off">
+      <span class="search-icon">▾</span>
       <div id="dropdown" class="dropdown"></div>
+    </div>
+    <div class="hero-stats">
+      <span class="hs-item">🛂 <strong id="countryCount">130+</strong> passports</span>
+      <span class="hs-sep">·</span>
+      <span class="hs-item">✈️ 22 transit cities</span>
+      <span class="hs-sep">·</span>
+      <span class="hs-item">🏝️ Hainan FTP</span>
+      <span class="hs-sep">·</span>
+      <span class="hs-item">🆓 Free forever</span>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════ MAIN ═══════════════════ -->
+<!-- ═══════════════════════════════════════════════
+     MAIN
+════════════════════════════════════════════════ -->
 <div class="main">
   <div id="results">
     <div class="empty-state">
       <div class="ei">🌍</div>
-      <p>Search for your passport country above to get started</p>
+      <div class="es-title">Check Your Passport</div>
+      <p>Search above, or tap a popular passport below</p>
+    </div>
+    <div class="popular-section" id="popularSection">
+      <div class="popular-label">Popular Passports</div>
+      <div class="chip-grid" id="chipGrid"></div>
+    </div>
+  </div>
+
+  <!-- ── Discover China Section (always visible) ── -->
+  <div class="discover-section">
+    <div class="discover-section-head">
+      <div>
+        <h2>🏯 Discover China</h2>
+        <p>Travel guides, vlogs &amp; insider tips for your trip</p>
+      </div>
+      <span class="discover-coming-badge">🚧 Content coming soon</span>
+    </div>
+
+    <div class="discover-grid">
+      <!-- Card 1 -->
+      <div class="discover-card">
+        <div class="dc-thumb dc-thumb-1">
+          <div class="dc-thumb-bg">🏙️</div>
+          <div class="dc-play">▶</div>
+          <div class="dc-thumb-label">Vlog</div>
+        </div>
+        <div class="dc-body">
+          <div class="dc-tag">YouTube · Travel Vlog</div>
+          <div class="dc-title">3 Days in Shanghai — The Ultimate Guide</div>
+          <div class="dc-meta">⏱ Coming Soon</div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="discover-card">
+        <div class="dc-thumb dc-thumb-2">
+          <div class="dc-thumb-bg">🛫</div>
+          <div class="dc-play">▶</div>
+          <div class="dc-thumb-label">TWOV Guide</div>
+        </div>
+        <div class="dc-body">
+          <div class="dc-tag">YouTube · Transit Tips</div>
+          <div class="dc-title">72-Hour Beijing Layover — What to Do</div>
+          <div class="dc-meta">⏱ Coming Soon</div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="discover-card">
+        <div class="dc-thumb dc-thumb-3">
+          <div class="dc-thumb-bg">🏝️</div>
+          <div class="dc-play">▶</div>
+          <div class="dc-thumb-label">Hainan</div>
+        </div>
+        <div class="dc-body">
+          <div class="dc-tag">YouTube · Beach Travel</div>
+          <div class="dc-title">Hainan Island — China's Tropical Paradise</div>
+          <div class="dc-meta">⏱ Coming Soon</div>
+        </div>
+      </div>
+
+      <!-- Card 4 — Add your own -->
+      <div class="discover-card dc-add-card">
+        <div class="dc-add-icon">＋</div>
+        <div class="dc-add-text">More travel content coming — check back soon!</div>
+      </div>
     </div>
   </div>
 
   <div class="disclaimer">
-    Data reference: <strong>early 2025</strong> — visa policies change frequently.
+    Data reference: <strong>2025–2026</strong> — visa policies change frequently.
     Always verify with the
     <a href="https://www.nia.gov.cn/n741440/index.html" target="_blank" rel="noopener">China National Immigration Administration</a>
     or your nearest Chinese embassy before travel.
@@ -263,23 +806,22 @@
 </div>
 
 <footer>
-  China Entry Guide &copy; 2025 &nbsp;·&nbsp; For informational purposes only &nbsp;·&nbsp; Not affiliated with the Chinese government
+  <a href="https://nihaochina.cc/">nihaochina.cc</a>
+  &nbsp;·&nbsp; For informational purposes only
+  &nbsp;·&nbsp; Not affiliated with the Chinese government
+  &nbsp;·&nbsp; &copy; 2025–2026
 </footer>
 
-<!-- ═══════════════════ SCRIPT ═══════════════════ -->
+<!-- ═══════════════════════════════════════════════
+     SCRIPT
+════════════════════════════════════════════════ -->
 <script>
 // ─────────────────────────────────────────────────────────────────
 // COUNTRY DATA
 // Fields: code, name, flag, region, days, policy, hainan, transit, note, uncertain
-//   policy:    "vf-bilateral" | "vf-unilateral" | "visa-required"
-//   days:      max stay (number) or null
-//   hainan:    eligible for Hainan FTP 30-day visa-free
-//   transit:   72 | 144 (TWOV hours available) or false
-//   uncertain: true = mark with "verify" warning
 // ─────────────────────────────────────────────────────────────────
 const COUNTRIES = [
-
-  /* ── EU 27 (China unilateral 15-day, from Dec 2023) ── */
+  /* ── EU 27 ── */
   {code:"AT",name:"Austria",          flag:"🇦🇹",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Part of China's Dec 2023 unilateral expansion"},
   {code:"BE",name:"Belgium",          flag:"🇧🇪",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Part of China's Dec 2023 unilateral expansion"},
   {code:"BG",name:"Bulgaria",         flag:"🇧🇬",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
@@ -307,8 +849,7 @@ const COUNTRIES = [
   {code:"SI",name:"Slovenia",         flag:"🇸🇮",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
   {code:"ES",name:"Spain",            flag:"🇪🇸",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"One of the original 6 countries in China's 2023 expansion"},
   {code:"SE",name:"Sweden",           flag:"🇸🇪",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-
-  /* ── Other Europe (unilateral or bilateral) ── */
+  /* ── Other Europe ── */
   {code:"AD",name:"Andorra",          flag:"🇦🇩",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
   {code:"IS",name:"Iceland",          flag:"🇮🇸",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
   {code:"LI",name:"Liechtenstein",    flag:"🇱🇮",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
@@ -317,15 +858,13 @@ const COUNTRIES = [
   {code:"SM",name:"San Marino",       flag:"🇸🇲",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
   {code:"CH",name:"Switzerland",      flag:"🇨🇭",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"One of the original 6 countries in China's 2023 expansion"},
   {code:"GB",name:"United Kingdom",   flag:"🇬🇧",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Added to visa-free list in 2024"},
-
-  /* ── Western Balkans (bilateral) ── */
+  /* ── Western Balkans ── */
   {code:"AL",name:"Albania",          flag:"🇦🇱",region:"Europe",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:"Bilateral visa-free agreement"},
   {code:"BA",name:"Bosnia & Herzegovina",flag:"🇧🇦",region:"Europe",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
   {code:"ME",name:"Montenegro",       flag:"🇲🇪",region:"Europe",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
   {code:"MK",name:"North Macedonia",  flag:"🇲🇰",region:"Europe",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
   {code:"RS",name:"Serbia",           flag:"🇷🇸",region:"Europe",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-
-  /* ── Former Soviet / Eurasia (bilateral) ── */
+  /* ── Eurasia ── */
   {code:"AM",name:"Armenia",          flag:"🇦🇲",region:"Eurasia",       days:10, policy:"vf-bilateral",  hainan:false, transit:144, note:""},
   {code:"AZ",name:"Azerbaijan",       flag:"🇦🇿",region:"Eurasia",       days:10, policy:"vf-bilateral",  hainan:false, transit:144, note:"Verify current duration", uncertain:true},
   {code:"BY",name:"Belarus",          flag:"🇧🇾",region:"Eurasia",       days:30, policy:"vf-bilateral",  hainan:false, transit:144, note:"Bilateral agreement"},
@@ -333,24 +872,30 @@ const COUNTRIES = [
   {code:"KZ",name:"Kazakhstan",       flag:"🇰🇿",region:"Eurasia",       days:14, policy:"vf-bilateral",  hainan:false, transit:144, note:""},
   {code:"KG",name:"Kyrgyzstan",       flag:"🇰🇬",region:"Eurasia",       days:10, policy:"vf-bilateral",  hainan:false, transit:144, note:""},
   {code:"MD",name:"Moldova",          flag:"🇲🇩",region:"Europe",        days:30, policy:"vf-bilateral",  hainan:false, transit:144, note:""},
+  {code:"MN",name:"Mongolia",         flag:"🇲🇳",region:"East Asia",     days:30, policy:"vf-bilateral",  hainan:false, transit:144, note:"Bilateral visa-free agreement"},
   {code:"RU",name:"Russia",           flag:"🇷🇺",region:"Eurasia",       days:15, policy:"vf-bilateral",  hainan:false, transit:144, note:"15-day stays per visit; multiple entries allowed per year"},
   {code:"TJ",name:"Tajikistan",       flag:"🇹🇯",region:"Eurasia",       days:15, policy:"vf-bilateral",  hainan:false, transit:144, note:""},
+  {code:"TM",name:"Turkmenistan",     flag:"🇹🇲",region:"Eurasia",       days:10, policy:"vf-bilateral",  hainan:false, transit:144, note:"Verify current duration", uncertain:true},
   {code:"UZ",name:"Uzbekistan",       flag:"🇺🇿",region:"Eurasia",       days:10, policy:"vf-bilateral",  hainan:false, transit:144, note:""},
   {code:"UA",name:"Ukraine",          flag:"🇺🇦",region:"Europe",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-
   /* ── Oceania ── */
   {code:"AU",name:"Australia",        flag:"🇦🇺",region:"Oceania",       days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Added to China's unilateral visa-free list in 2024"},
   {code:"FJ",name:"Fiji",             flag:"🇫🇯",region:"Oceania",       days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
+  {code:"KI",name:"Kiribati",         flag:"🇰🇮",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:"Established diplomatic ties with China in 2019", uncertain:true},
+  {code:"MH",name:"Marshall Islands", flag:"🇲🇭",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:"Recognizes Taiwan; standard visa required"},
+  {code:"FM",name:"Micronesia",       flag:"🇫🇲",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:""},
+  {code:"NR",name:"Nauru",            flag:"🇳🇷",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"NZ",name:"New Zealand",      flag:"🇳🇿",region:"Oceania",       days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Added in 2024"},
   {code:"PG",name:"Papua New Guinea", flag:"🇵🇬",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:""},
+  {code:"PW",name:"Palau",            flag:"🇵🇼",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:"Recognizes Taiwan; standard visa required"},
   {code:"WS",name:"Samoa",            flag:"🇼🇸",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:"Verify current status", uncertain:true},
+  {code:"SB",name:"Solomon Islands",  flag:"🇸🇧",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:"Established diplomatic ties in 2019 — verify current requirements", uncertain:true},
   {code:"TO",name:"Tonga",            flag:"🇹🇴",region:"Oceania",       days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
+  {code:"TV",name:"Tuvalu",           flag:"🇹🇻",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:"Recognizes Taiwan; standard visa required"},
   {code:"VU",name:"Vanuatu",          flag:"🇻🇺",region:"Oceania",       days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-
   /* ── East Asia ── */
   {code:"JP",name:"Japan",            flag:"🇯🇵",region:"East Asia",     days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Announced 2024 — verify current status before travel", uncertain:true},
   {code:"KR",name:"South Korea",      flag:"🇰🇷",region:"East Asia",     days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Announced 2024 — verify current status", uncertain:true},
-
   /* ── Southeast Asia ── */
   {code:"BN",name:"Brunei",           flag:"🇧🇳",region:"SE Asia",       days:15, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
   {code:"KH",name:"Cambodia",         flag:"🇰🇭",region:"SE Asia",       days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
@@ -361,29 +906,34 @@ const COUNTRIES = [
   {code:"PH",name:"Philippines",      flag:"🇵🇭",region:"SE Asia",       days:30, policy:"vf-unilateral", hainan:true,  transit:144, note:"Verify current status", uncertain:true},
   {code:"SG",name:"Singapore",        flag:"🇸🇬",region:"SE Asia",       days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
   {code:"TH",name:"Thailand",         flag:"🇹🇭",region:"SE Asia",       days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
+  {code:"TL",name:"Timor-Leste",      flag:"🇹🇱",region:"SE Asia",       days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"VN",name:"Vietnam",          flag:"🇻🇳",region:"SE Asia",       days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Verify current status", uncertain:true},
-
   /* ── South Asia ── */
   {code:"BD",name:"Bangladesh",       flag:"🇧🇩",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:144, note:""},
+  {code:"BT",name:"Bhutan",           flag:"🇧🇹",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:144, note:"No diplomatic relations with China; special arrangements required"},
   {code:"IN",name:"India",            flag:"🇮🇳",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"MV",name:"Maldives",         flag:"🇲🇻",region:"South Asia",    days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
   {code:"NP",name:"Nepal",            flag:"🇳🇵",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:144, note:"Verify — agreement status may have changed", uncertain:true},
   {code:"PK",name:"Pakistan",         flag:"🇵🇰",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"LK",name:"Sri Lanka",        flag:"🇱🇰",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:144, note:"Verify current status", uncertain:true},
-
   /* ── Middle East ── */
   {code:"BH",name:"Bahrain",          flag:"🇧🇭",region:"Middle East",   days:30, policy:"vf-bilateral",  hainan:false, transit:144, note:"Verify current duration", uncertain:true},
   {code:"IR",name:"Iran",             flag:"🇮🇷",region:"Middle East",   days:30, policy:"vf-bilateral",  hainan:false, transit:144, note:"Bilateral agreement"},
   {code:"IL",name:"Israel",           flag:"🇮🇱",region:"Middle East",   days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Added in 2024 — verify current status", uncertain:true},
+  {code:"IQ",name:"Iraq",             flag:"🇮🇶",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"JO",name:"Jordan",           flag:"🇯🇴",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"KW",name:"Kuwait",           flag:"🇰🇼",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:144, note:""},
+  {code:"LB",name:"Lebanon",          flag:"🇱🇧",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:144, note:"Verify current requirements", uncertain:true},
   {code:"OM",name:"Oman",             flag:"🇴🇲",region:"Middle East",   days:30, policy:"vf-bilateral",  hainan:false, transit:144, note:"Verify current status", uncertain:true},
   {code:"QA",name:"Qatar",            flag:"🇶🇦",region:"Middle East",   days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
   {code:"SA",name:"Saudi Arabia",     flag:"🇸🇦",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"TR",name:"Turkey",           flag:"🇹🇷",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"AE",name:"United Arab Emirates",flag:"🇦🇪",region:"Middle East",days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-
+  {code:"AE",name:"UAE",              flag:"🇦🇪",region:"Middle East",   days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
+  {code:"YE",name:"Yemen",            flag:"🇾🇪",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   /* ── Africa ── */
+  {code:"AO",name:"Angola",           flag:"🇦🇴",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
+  {code:"CM",name:"Cameroon",         flag:"🇨🇲",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
+  {code:"CI",name:"Côte d'Ivoire",    flag:"🇨🇮",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"EG",name:"Egypt",            flag:"🇪🇬",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"ET",name:"Ethiopia",         flag:"🇪🇹",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"GH",name:"Ghana",            flag:"🇬🇭",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
@@ -391,31 +941,41 @@ const COUNTRIES = [
   {code:"MA",name:"Morocco",          flag:"🇲🇦",region:"Africa",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
   {code:"MU",name:"Mauritius",        flag:"🇲🇺",region:"Africa",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:"Verify current status", uncertain:true},
   {code:"NG",name:"Nigeria",          flag:"🇳🇬",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
+  {code:"RW",name:"Rwanda",           flag:"🇷🇼",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
+  {code:"SN",name:"Senegal",          flag:"🇸🇳",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"TN",name:"Tunisia",          flag:"🇹🇳",region:"Africa",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
+  {code:"TZ",name:"Tanzania",         flag:"🇹🇿",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
+  {code:"UG",name:"Uganda",           flag:"🇺🇬",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"ZA",name:"South Africa",     flag:"🇿🇦",region:"Africa",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-
+  {code:"ZM",name:"Zambia",           flag:"🇿🇲",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
+  {code:"ZW",name:"Zimbabwe",         flag:"🇿🇼",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   /* ── Americas ── */
   {code:"AG",name:"Antigua & Barbuda",flag:"🇦🇬",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
   {code:"AR",name:"Argentina",        flag:"🇦🇷",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
+  {code:"BS",name:"Bahamas",          flag:"🇧🇸",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"BB",name:"Barbados",         flag:"🇧🇧",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
   {code:"BO",name:"Bolivia",          flag:"🇧🇴",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"Verify current status", uncertain:true},
   {code:"BR",name:"Brazil",           flag:"🇧🇷",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
   {code:"CA",name:"Canada",           flag:"🇨🇦",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"144h TWOV available at major airports"},
   {code:"CL",name:"Chile",            flag:"🇨🇱",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
   {code:"CO",name:"Colombia",         flag:"🇨🇴",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"Verify current status", uncertain:true},
+  {code:"CR",name:"Costa Rica",       flag:"🇨🇷",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"CU",name:"Cuba",             flag:"🇨🇺",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
+  {code:"DO",name:"Dominican Republic",flag:"🇩🇴",region:"Americas",    days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"EC",name:"Ecuador",          flag:"🇪🇨",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
+  {code:"GT",name:"Guatemala",        flag:"🇬🇹",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"Recognizes Taiwan; standard visa required"},
+  {code:"HN",name:"Honduras",         flag:"🇭🇳",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"Established diplomatic ties in 2023 — verify current requirements", uncertain:true},
   {code:"JM",name:"Jamaica",          flag:"🇯🇲",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:""},
   {code:"MX",name:"Mexico",           flag:"🇲🇽",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:""},
+  {code:"NI",name:"Nicaragua",        flag:"🇳🇮",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"Established diplomatic ties in 2022 — verify current requirements", uncertain:true},
+  {code:"PA",name:"Panama",           flag:"🇵🇦",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:"Agreement after establishing diplomatic ties in 2017", uncertain:true},
   {code:"PE",name:"Peru",             flag:"🇵🇪",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
+  {code:"TT",name:"Trinidad & Tobago",flag:"🇹🇹",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:"Bilateral visa-free agreement", uncertain:true},
   {code:"UY",name:"Uruguay",          flag:"🇺🇾",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
   {code:"US",name:"United States",    flag:"🇺🇸",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"Visa required; 144-hour TWOV available at major airports"},
   {code:"VE",name:"Venezuela",        flag:"🇻🇪",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"Verify current status", uncertain:true},
 ];
 
-// ─────────────────────────────────────────────
-// STATIC DATA
-// ─────────────────────────────────────────────
 const TWOV_CITIES = [
   "Beijing","Shanghai","Guangzhou","Chengdu","Chongqing",
   "Wuhan","Xiamen","Xi'an","Tianjin","Shenyang","Dalian",
@@ -432,57 +992,93 @@ const MAJOR_AIRPORTS = [
   "Shenyang (SHE)","Harbin (HRB)","Dalian (DLC)","Haikou (HAK)","Sanya (SYX)"
 ];
 
-// ─────────────────────────────────────────────
-// BUILD LOOKUP MAP & SORT
-// ─────────────────────────────────────────────
+const POPULAR_CODES = ["US","GB","DE","FR","AU","CA","JP","KR","SG","IN","TH","BR"];
+
+// ── Build maps ──
 const dataMap = {};
 COUNTRIES.forEach(c => { dataMap[c.code] = c; });
 const sorted = [...COUNTRIES].sort((a,b) => a.name.localeCompare(b.name));
 
-// ─────────────────────────────────────────────
-// DOM REFS
-// ─────────────────────────────────────────────
-const searchInput  = document.getElementById('searchInput');
-const dropdown     = document.getElementById('dropdown');
-const resultsDiv   = document.getElementById('results');
-const searchWrapper= document.getElementById('searchWrapper');
+// Update country count display
+document.getElementById('countryCount').textContent = COUNTRIES.length + '+';
 
-// ─────────────────────────────────────────────
-// DROPDOWN
-// ─────────────────────────────────────────────
-function buildDropdown(q='') {
-  const q2 = q.toLowerCase();
-  const list = sorted.filter(c =>
-    c.name.toLowerCase().includes(q2) ||
-    c.code.toLowerCase().includes(q2) ||
-    c.region.toLowerCase().includes(q2)
-  );
+// ── DOM refs ──
+const searchInput    = document.getElementById('searchInput');
+const dropdown       = document.getElementById('dropdown');
+const resultsDiv     = document.getElementById('results');
+const searchWrapper  = document.getElementById('searchWrapper');
+const popularSection = document.getElementById('popularSection');
+const chipGrid       = document.getElementById('chipGrid');
+
+// ── Popular chips ──
+function renderChips() {
+  chipGrid.innerHTML = POPULAR_CODES.map(code => {
+    const c = dataMap[code];
+    if (!c) return '';
+    return `<button class="chip" data-code="${code}">
+      <span class="chip-flag">${c.flag}</span><span>${c.name}</span>
+    </button>`;
+  }).join('');
+  chipGrid.querySelectorAll('.chip').forEach(el => {
+    el.addEventListener('click', () => selectCountry(el.dataset.code));
+  });
+}
+renderChips();
+
+// ── Dropdown builder ──
+// Shows ALL countries when query is empty (complete list)
+function buildDropdown(q = '') {
+  const q2 = q.toLowerCase().trim();
+  const list = q2
+    ? sorted.filter(c =>
+        c.name.toLowerCase().includes(q2) ||
+        c.code.toLowerCase() === q2 ||
+        c.region.toLowerCase().includes(q2)
+      )
+    : sorted; // ← FULL LIST when empty
+
+  const total = list.length;
+  const headerLabel = q2
+    ? `${total} result${total !== 1 ? 's' : ''} for "${q}"`
+    : `All ${total} countries & regions`;
+
   if (!list.length) {
-    dropdown.innerHTML = '<div class="drop-no">No countries found</div>';
-  } else {
-    dropdown.innerHTML = list.map(c =>
-      `<div class="drop-item" data-code="${c.code}">
+    dropdown.innerHTML =
+      `<div class="drop-header">0 results</div>
+       <div class="drop-no">No countries found — try another name</div>`;
+    return;
+  }
+
+  dropdown.innerHTML =
+    `<div class="drop-header">🌍 ${headerLabel}</div>` +
+    list.map(c => {
+      const isVF = c.policy !== 'visa-required';
+      const statusClass = isVF ? 'di-vf' : 'di-req';
+      const statusText  = isVF ? 'Visa-free' : 'Visa req.';
+      return `<div class="drop-item" data-code="${c.code}">
         <span class="di-flag">${c.flag}</span>
         <span class="di-name">${c.name}</span>
-        <span class="di-region">${c.region}</span>
-       </div>`
-    ).join('');
-    dropdown.querySelectorAll('.drop-item').forEach(el => {
-      el.addEventListener('click', () => {
-        selectCountry(el.dataset.code);
-        dropdown.classList.remove('open');
-      });
+        <span class="di-status ${statusClass}">${statusText}</span>
+      </div>`;
+    }).join('');
+
+  dropdown.querySelectorAll('.drop-item').forEach(el => {
+    el.addEventListener('click', () => {
+      selectCountry(el.dataset.code);
+      dropdown.classList.remove('open');
     });
-  }
+  });
 }
 
-// ─────────────────────────────────────────────
-// SELECT & RENDER
-// ─────────────────────────────────────────────
+// ── Select & render ──
 function selectCountry(code) {
   const c = dataMap[code];
   if (!c) return;
   searchInput.value = `${c.flag}  ${c.name}`;
+  dropdown.classList.remove('open');
+  history.replaceState(null, '', '#' + code);
+  document.title = `${c.name} → China Entry — Visa & Transit Check`;
+  popularSection.style.display = 'none';
   renderResults(c);
 }
 
@@ -491,180 +1087,222 @@ function renderResults(c) {
   const isBilat = c.policy === 'vf-bilateral';
   let html = '';
 
-  // ── Header
-  const badgeCls  = isVF ? 'badge-free' : 'badge-required';
-  const badgeTxt  = isVF ? '✅ Visa-Free Entry' : '❌ Visa Required';
-  const badgeSub  = isVF
-    ? (isBilat ? 'Bilateral agreement' : 'China unilateral policy')
+  // ── Header card ──
+  const badgeCls = isVF ? 'badge-free' : 'badge-required';
+  const badgeTxt = isVF ? '✅ Visa-Free Entry' : '❌ Visa Required';
+  const badgeSub = isVF
+    ? (isBilat ? 'Bilateral agreement' : "China's unilateral policy")
     : 'Must obtain visa before travel';
 
   html += `
-    <div class="res-head">
+    <div class="res-header-card res-animated">
       <div class="res-country">
         <span class="cf">${c.flag}</span>
         <span>${c.name} Passport</span>
       </div>
-      <span class="badge ${badgeCls}">${badgeTxt} &nbsp;·&nbsp; ${badgeSub}</span>
+      <span class="badge ${badgeCls}">${badgeTxt}</span>
+      <div style="font-size:.79rem;color:var(--gray-400);margin-top:6px">${badgeSub}</div>
+      <div class="share-bar">
+        <button class="share-btn copy-btn" id="copyBtn"
+                onclick="copyLink('${c.code}','${c.name}')">📋 Copy Link</button>
+        <button class="share-btn x-btn"
+                onclick="shareToX('${c.code}','${c.name}','${isVF}','${c.days}')">𝕏 Share</button>
+      </div>
     </div>
   `;
 
-  // ── Uncertain warning
+  // ── Uncertain warning ──
   if (c.uncertain) {
     html += `
-      <div class="warn-box">
+      <div class="warn-box res-animated" style="animation-delay:.04s">
         <span>⚠️</span>
-        <span>${c.note} — Please confirm with the
+        <div>${c.note} — Please confirm with the
           <a href="https://www.nia.gov.cn/n741440/index.html" target="_blank" rel="noopener">China National Immigration Administration</a>
-          or your local Chinese embassy before booking travel.
-        </span>
-      </div>
-    `;
-  }
-
-  // ── Info note (non-uncertain)
-  if (c.note && !c.uncertain) {
+          or your local Chinese embassy before booking.
+        </div>
+      </div>`;
+  } else if (c.note) {
     html += `
-      <div class="info-box">
-        <span>ℹ️</span>
-        <span>${c.note}</span>
-      </div>
-    `;
+      <div class="info-box res-animated" style="animation-delay:.04s">
+        <span>ℹ️</span><div>${c.note}</div>
+      </div>`;
   }
 
-  // ── 2-column stat cards
-  html += '<div class="cards-2">';
+  // ── Stats grid ──
+  html += `<div class="stats-grid res-animated" style="animation-delay:.06s">`;
 
   // Card A: Entry status
   if (isVF) {
     html += `
-      <div class="card">
-        <div class="card-icon">🛂</div>
-        <div class="card-label">Mainland Entry</div>
-        <div class="card-val cv-green">Visa-Free</div>
-        <div class="card-sub">${isBilat ? 'Mutual agreement' : "China's unilateral policy"}</div>
+      <div class="stat-card">
+        <div class="stat-icon-wrap si-green">🛂</div>
+        <div class="stat-body">
+          <div class="stat-label">Mainland Entry</div>
+          <div class="stat-value sv-green">Visa-Free</div>
+          <div class="stat-sub">${isBilat ? 'Mutual agreement' : "Unilateral policy"}</div>
+        </div>
       </div>`;
   } else {
     html += `
-      <div class="card">
-        <div class="card-icon">🛂</div>
-        <div class="card-label">Mainland Entry</div>
-        <div class="card-val cv-red">Visa Required</div>
-        <div class="card-sub">Apply at a Chinese embassy/consulate</div>
+      <div class="stat-card">
+        <div class="stat-icon-wrap si-red">🛂</div>
+        <div class="stat-body">
+          <div class="stat-label">Mainland Entry</div>
+          <div class="stat-value sv-red">Visa Required</div>
+          <div class="stat-sub">Apply at Chinese embassy / CVASC</div>
+        </div>
       </div>`;
   }
 
-  // Card B: Duration or transit
+  // Card B: Duration / TWOV
   if (isVF) {
     html += `
-      <div class="card">
-        <div class="card-icon">📅</div>
-        <div class="card-label">Max Stay</div>
-        <div class="card-val cv-green">${c.days} days</div>
-        <div class="card-sub">Per entry · Single use unless noted</div>
+      <div class="stat-card">
+        <div class="stat-icon-wrap si-green">📅</div>
+        <div class="stat-body">
+          <div class="stat-label">Max Stay</div>
+          <div class="stat-value sv-green">${c.days} days</div>
+          <div class="stat-sub">Per entry · Single-use unless noted</div>
+        </div>
       </div>`;
   } else if (c.transit) {
     html += `
-      <div class="card">
-        <div class="card-icon">⏱️</div>
-        <div class="card-label">Transit Stay (TWOV)</div>
-        <div class="card-val cv-amber">${c.transit} hours</div>
-        <div class="card-sub">Explore China without a visa during layover</div>
+      <div class="stat-card">
+        <div class="stat-icon-wrap si-amber">⏱️</div>
+        <div class="stat-body">
+          <div class="stat-label">Transit (TWOV)</div>
+          <div class="stat-value sv-amber">${c.transit}h</div>
+          <div class="stat-sub">Explore China during layover, visa-free</div>
+        </div>
       </div>`;
   } else {
     html += `
-      <div class="card">
-        <div class="card-icon">📅</div>
-        <div class="card-label">Max Stay</div>
-        <div class="card-val cv-red">Visa Needed</div>
-        <div class="card-sub">Duration depends on visa type issued</div>
+      <div class="stat-card">
+        <div class="stat-icon-wrap si-red">📅</div>
+        <div class="stat-body">
+          <div class="stat-label">Max Stay</div>
+          <div class="stat-value sv-red">Visa Needed</div>
+          <div class="stat-sub">Duration depends on visa type issued</div>
+        </div>
       </div>`;
   }
 
-  html += '</div>'; // end cards-2
+  html += '</div>'; // end stats-grid
 
-  // ── Ports of entry (only for visa-free)
+  // ── Ports of entry ──
   if (isVF) {
     html += `
-      <div class="card-full">
-        <div class="cf-title">✈️ Ports of Entry</div>
+      <div class="section-card res-animated" style="animation-delay:.10s">
+        <div class="sc-header">
+          <div class="sc-icon">✈️</div>
+          <div><div class="sc-title">Ports of Entry</div>
+          <div class="sc-sub">All international airports &amp; designated sea/land ports</div></div>
+        </div>
         <div class="tag-list">
           ${MAJOR_AIRPORTS.map(p => `<span class="tag tag-port">${p}</span>`).join('')}
         </div>
-        <p class="tag-note">All international airports and designated land/sea ports are accessible. Check with airlines for specific port availability on your route.</p>
-      </div>
-    `;
+        <p class="tag-note">Check with your airline for specific port availability on your route.</p>
+      </div>`;
   }
 
-  // ── TWOV section
+  // ── TWOV section ──
   if (c.transit) {
     const twovNote = isVF
-      ? `Even with visa-free entry, TWOV is a great option for short stopovers — explore a city without consuming your visa-free allowance.`
-      : `No mainland visa? No problem! You can freely explore China for up to ${c.transit} hours during a layover — completely visa-free.`;
+      ? `Even with visa-free entry, TWOV lets you explore a city without using your visa-free quota — ideal for short stopovers.`
+      : `No mainland visa? No problem! Explore China for up to ${c.transit} hours during a layover, completely visa-free.`;
 
     html += `
-      <div class="card-full">
-        <div class="cf-title">🔄 ${c.transit}-Hour Transit Visa-Free (TWOV)</div>
-        <p style="font-size:.87rem;color:var(--gray-600);margin-bottom:13px;line-height:1.7">${twovNote}</p>
-        <div style="font-size:.8rem;font-weight:600;color:var(--gray-800);margin-bottom:8px">📍 Available cities:</div>
+      <div class="section-card res-animated" style="animation-delay:.14s">
+        <div class="sc-header">
+          <div class="sc-icon">🔄</div>
+          <div><div class="sc-title">${c.transit}-Hour Transit Visa-Free (TWOV)</div>
+          <div class="sc-sub">${twovNote}</div></div>
+        </div>
+        <div style="font-size:.8rem;font-weight:600;color:var(--gray-700);margin-bottom:8px">📍 Available cities:</div>
         <div class="tag-list">
           ${TWOV_CITIES.map(city => `<span class="tag tag-city">${city}</span>`).join('')}
         </div>
-        <div style="margin-top:14px;padding:13px;background:#f8fafc;border-radius:8px;font-size:.82rem;color:#374151;line-height:1.75">
+        <div class="twov-req">
           <strong>Requirements:</strong><br>
-          ① Valid passport &nbsp;②&nbsp; Onward ticket to a 3rd country departing within ${c.transit} hours<br>
-          ③ Stay within the city's designated travel zone<br>
-          ④ Shanghai zone extends to Jiangsu &amp; Zhejiang provinces (144h only)<br>
-          ⑤ Some nationalities may still need a transit visa — check with your airline
+          ① Valid passport &nbsp; ② Onward ticket to a 3rd country within ${c.transit} hours<br>
+          ③ Stay within the designated city travel zone<br>
+          ④ Shanghai zone extends to Jiangsu &amp; Zhejiang (144h only)<br>
+          ⑤ Some nationalities may still need a transit visa — confirm with your airline
         </div>
-      </div>
-    `;
+      </div>`;
   }
 
-  // ── Hainan FTP section
+  // ── Hainan FTP ──
   if (c.hainan) {
     const hainanNote = isVF
-      ? `In addition to mainland visa-free access, your passport is also eligible for Hainan's separate 30-day visa-free policy. Great for a beach extension!`
-      : `Even without a mainland visa, you may be eligible to visit Hainan Island visa-free for up to 30 days under the Hainan Free Trade Port (FTP) policy.`;
+      ? `In addition to mainland access, your passport is eligible for Hainan's separate 30-day visa-free policy — great for a beach extension!`
+      : `Even without a mainland visa, you may visit Hainan Island visa-free for up to 30 days under the Hainan Free Trade Port (FTP) policy.`;
     html += `
-      <div class="hainan-card">
-        <div class="hc-title">🌴 Hainan Free Trade Port — 30-Day Visa-Free</div>
-        <div class="hc-sub">
-          ${hainanNote}
-          &nbsp;Eligible for tourism, business meetings, exhibitions, and conferences.
-          Entry must be through Hainan's own airports or sea ports (e.g. Haikou HAK, Sanya SYX).
-          You cannot use this policy to enter the mainland.
+      <div class="hainan-card res-animated" style="animation-delay:.18s">
+        <div class="hainan-header">
+          <div class="hainan-icon">🌴</div>
+          <div class="hainan-title">Hainan Free Trade Port — 30-Day Visa-Free</div>
         </div>
-      </div>
-    `;
+        <div class="hainan-body">
+          ${hainanNote}
+          Eligible for tourism, business meetings, exhibitions &amp; conferences.
+          Entry must be through Hainan's airports or sea ports (Haikou HAK, Sanya SYX).
+          You cannot use this policy to enter the Chinese mainland.
+        </div>
+      </div>`;
   }
 
-  // ── How to apply (visa-required countries)
+  // ── How to apply ──
   if (!isVF) {
     html += `
-      <div class="apply-card">
-        <div class="ac-title">📋 How to Get a China Visa</div>
+      <div class="apply-card res-animated" style="animation-delay:.10s">
+        <div class="apply-title">📋 How to Get a China Visa</div>
         <p>Apply at the nearest <strong>Chinese Embassy or Consulate</strong> in your country, or at an authorized <strong>China Visa Application Service Center (CVASC)</strong>.</p>
         <ul>
-          <li>Passport valid for ≥ 6 months beyond intended stay</li>
-          <li>Completed visa application form + recent photo</li>
-          <li>Confirmed flight &amp; hotel bookings / itinerary</li>
+          <li>Passport valid for ≥ 6 months beyond your intended stay</li>
+          <li>Completed visa application form + recent passport-style photo</li>
+          <li>Confirmed flight &amp; hotel bookings or travel itinerary</li>
           <li>Processing: typically 4–7 business days (express options available)</li>
-          <li>Most tourists apply for a <strong>L-type (tourist) visa</strong></li>
+          <li>Most tourists apply for an <strong>L-type (tourist) visa</strong></li>
         </ul>
-        <p style="margin-top:10px">
+        <p style="margin-top:12px">
           💡 <strong>Tip:</strong> Even without a visa, you can use the
-          <strong>${c.transit || 144}-hour TWOV</strong> to explore major Chinese cities during a layover!
+          <strong>${c.transit || 144}-hour TWOV</strong> to explore major Chinese cities during a layover — no visa needed!
         </p>
-      </div>
-    `;
+      </div>`;
   }
 
   resultsDiv.innerHTML = html;
 }
 
-// ─────────────────────────────────────────────
-// EVENT LISTENERS
-// ─────────────────────────────────────────────
+// ── Share functions ──
+function copyLink(code) {
+  const url = `https://nihaochina.cc/#${code}`;
+  navigator.clipboard.writeText(url).then(() => {
+    const btn = document.getElementById('copyBtn');
+    if (!btn) return;
+    btn.textContent = '✅ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 Copy Link';
+      btn.classList.remove('copied');
+    }, 2200);
+  }).catch(() => {
+    prompt('Copy this link:', `https://nihaochina.cc/#${code}`);
+  });
+}
+
+function shareToX(code, name, isVFStr, days) {
+  const isVF   = isVFStr === 'true';
+  const status = isVF
+    ? `✅ ${name} passport → Visa-free entry to China! (up to ${days} days)`
+    : `${name} passport → Visa required for China mainland. But 144h transit is available!`;
+  const url    = `https://nihaochina.cc/#${code}`;
+  const tweet  = encodeURIComponent(`${status}\n\nCheck your passport: ${url}`);
+  window.open(`https://x.com/intent/tweet?text=${tweet}`, '_blank', 'noopener,noreferrer');
+}
+
+// ── Event listeners ──
 searchInput.addEventListener('focus', () => {
   buildDropdown(searchInput.value);
   dropdown.classList.add('open');
@@ -681,8 +1319,15 @@ document.addEventListener('click', e => {
   }
 });
 
-// Initialise dropdown
-buildDropdown();
+// ── Auto-load from URL hash ──
+(function loadFromHash() {
+  const hash = window.location.hash.replace('#', '').toUpperCase().trim();
+  if (hash && dataMap[hash]) {
+    selectCountry(hash);
+  } else {
+    buildDropdown(); // pre-build full list in background
+  }
+})();
 </script>
 </body>
 </html>
