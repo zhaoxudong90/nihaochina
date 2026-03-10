@@ -113,8 +113,10 @@
       background: #fff;
       border-bottom: 1px solid var(--gray-200);
       position: relative;
-      overflow: hidden;
+      /* overflow: hidden removed — was clipping the dropdown */
     }
+    /* Contain decorative elements within hero-band only */
+    .hero-band { overflow: hidden; }
 
     /* Decorative red band at top */
     .hero-band {
