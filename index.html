@@ -869,7 +869,7 @@
       <div class="developer-kicker">Developer Contact:</div>
       <div class="developer-name">Dax Zhao</div>
     </div>
-    <a class="developer-link" href="https://x.com/DZhao3007" target="_blank" rel="noopener">Contact on X</a>
+    <a class="developer-link" id="developerContactLink" href="https://x.com/DZhao3007" rel="noopener">Contact on X</a>
   </div>
 </div>
 
@@ -1644,6 +1644,11 @@ document.addEventListener('click', e => {
   if (!searchWrapper.contains(e.target)) {
     dropdown.classList.remove('open');
   }
+});
+
+document.getElementById('developerContactLink')?.addEventListener('click', e => {
+  e.preventDefault();
+  window.location.href = 'https://x.com/DZhao3007';
 });
 
 // ── Auto-load from URL hash ──
