@@ -6,7 +6,7 @@
 
   <!-- ── Primary SEO ── -->
   <title>China Entry Guide — Visa-Free &amp; Transit Checker</title>
-  <meta name="description" content="Instantly check if your passport allows visa-free entry to China — stay duration, entry ports, 144h transit (TWOV), and Hainan FTP policy. 130+ countries covered.">
+  <meta name="description" content="Instantly check if your passport allows visa-free entry to China — stay duration, entry ports, 240h transit (TWOV), and Hainan FTP policy. 130+ countries covered.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://nihaochina.cc/">
 
@@ -15,7 +15,7 @@
   <meta property="og:url"          content="https://nihaochina.cc/">
   <meta property="og:site_name"    content="Nihao China — China Entry Guide">
   <meta property="og:title"        content="China Entry Guide — Visa-Free &amp; Transit Checker">
-  <meta property="og:description"  content="Instantly check if your passport allows visa-free entry to China. 130+ countries, stay limits, TWOV transit, and Hainan FTP policy.">
+  <meta property="og:description"  content="Instantly check if your passport allows visa-free entry to China. 130+ countries, stay limits, 240h TWOV transit, and Hainan FTP policy.">
   <meta property="og:image"        content="https://nihaochina.cc/og.png">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
@@ -553,118 +553,6 @@
     .apply-card ul { font-size: .87rem; color: var(--gray-600); line-height: 1.85; padding-left: 20px; margin-top: 10px; }
 
     /* ════════════════════════════════════════
-       DISCOVER CHINA SECTION
-    ════════════════════════════════════════ */
-    .discover-section {
-      margin-top: 48px;
-      padding-top: 36px;
-      border-top: 1px solid var(--gray-200);
-    }
-    .discover-section-head {
-      display: flex; align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 20px; gap: 12px;
-    }
-    .discover-section-head h2 {
-      font-size: 1.35rem; font-weight: 800;
-      letter-spacing: -.02em; color: var(--gray-900);
-    }
-    .discover-section-head p {
-      font-size: .84rem; color: var(--gray-400);
-      margin-top: 2px;
-    }
-    .discover-coming-badge {
-      flex-shrink: 0;
-      display: inline-flex; align-items: center; gap: 5px;
-      background: #fef3c7; color: #92400e;
-      border: 1px solid #fde68a;
-      border-radius: 50px; padding: 4px 12px;
-      font-size: .73rem; font-weight: 600;
-    }
-
-    .discover-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 16px;
-    }
-    @media (max-width: 480px) { .discover-grid { grid-template-columns: 1fr 1fr; gap: 10px; } }
-    @media (max-width: 360px) { .discover-grid { grid-template-columns: 1fr; } }
-
-    .discover-card {
-      background: #fff;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform .18s, box-shadow .18s;
-      cursor: pointer;
-    }
-    .discover-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-
-    .dc-thumb {
-      aspect-ratio: 16/9;
-      background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 32px;
-      position: relative;
-      overflow: hidden;
-    }
-    .dc-thumb-bg {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 56px; opacity: .15;
-    }
-    .dc-play {
-      width: 44px; height: 44px;
-      background: rgba(0,0,0,.55);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 18px;
-      position: relative; z-index: 1;
-      padding-left: 3px;
-    }
-    .dc-thumb-label {
-      position: absolute; bottom: 8px; right: 8px;
-      background: rgba(0,0,0,.65); color: #fff;
-      font-size: .68rem; font-weight: 600;
-      padding: 2px 7px; border-radius: 4px;
-    }
-
-    .dc-body { padding: 13px 14px 14px; }
-    .dc-tag {
-      font-size: .68rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: .06em;
-      color: var(--red); margin-bottom: 4px;
-    }
-    .dc-title {
-      font-size: .88rem; font-weight: 700;
-      color: var(--gray-800); line-height: 1.35;
-      margin-bottom: 4px;
-    }
-    .dc-meta {
-      font-size: .74rem; color: var(--gray-400);
-      display: flex; align-items: center; gap: 6px;
-    }
-    .dc-add-card {
-      border: 2px dashed var(--gray-200);
-      background: transparent;
-      box-shadow: none;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      min-height: 160px;
-      gap: 8px; padding: 20px;
-      text-align: center;
-    }
-    .dc-add-card:hover { border-color: var(--red); background: #fff4f4; box-shadow: none; }
-    .dc-add-icon { font-size: 28px; color: var(--gray-300); }
-    .dc-add-text { font-size: .82rem; color: var(--gray-400); font-weight: 500; }
-
-    /* ─── Gradient colors for placeholder thumbs ─── */
-    .dc-thumb-1 { background: linear-gradient(135deg, #b91c1c 0%, #ef4444 100%); }
-    .dc-thumb-2 { background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%); }
-    .dc-thumb-3 { background: linear-gradient(135deg, #14532d 0%, #16a34a 100%); }
-    .dc-thumb-4 { background: linear-gradient(135deg, #7c2d12 0%, #ea580c 100%); }
-
-    /* ════════════════════════════════════════
        DISCLAIMER + FOOTER
     ════════════════════════════════════════ */
     .disclaimer {
@@ -677,6 +565,60 @@
       line-height: 1.7;
     }
     .disclaimer a { color: var(--red); text-decoration: none; font-weight: 500; }
+
+    .developer-card {
+      background: linear-gradient(135deg, #fff 0%, #fff7f7 100%);
+      border: 1px solid #fecaca;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+      padding: 18px 20px;
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .developer-kicker {
+      color: var(--red);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .developer-name {
+      color: var(--gray-900);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+    .developer-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 38px;
+      border-radius: 50px;
+      background: var(--gray-900);
+      color: #fff;
+      padding: 8px 15px;
+      font-size: .84rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .18s, box-shadow .18s, background .18s;
+      white-space: nowrap;
+    }
+    .developer-link:hover {
+      background: var(--red);
+      box-shadow: var(--shadow);
+      transform: translateY(-1px);
+    }
+    @media (max-width: 520px) {
+      .developer-card {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .developer-link { width: 100%; }
+    }
 
     footer {
       text-align: center; padding: 24px;
@@ -835,7 +777,7 @@
     <div class="hero-stats">
       <span class="hs-item">🛂 <strong id="countryCount">130+</strong> passports</span>
       <span class="hs-sep">·</span>
-      <span class="hs-item">✈️ 22 transit cities</span>
+      <span class="hs-item">✈️ 240h transit · 65 ports</span>
       <span class="hs-sep">·</span>
       <span class="hs-item">🏝️ Hainan FTP</span>
       <span class="hs-sep">·</span>
@@ -860,72 +802,20 @@
     </div>
   </div>
 
-  <!-- ── Discover China Section (always visible) ── -->
-  <div class="discover-section">
-    <div class="discover-section-head">
-      <div>
-        <h2>🏯 Discover China</h2>
-        <p>Travel guides, vlogs &amp; insider tips for your trip</p>
-      </div>
-      <span class="discover-coming-badge">🚧 Content coming soon</span>
-    </div>
-
-    <div class="discover-grid">
-      <!-- Card 1 -->
-      <div class="discover-card">
-        <div class="dc-thumb dc-thumb-1">
-          <div class="dc-thumb-bg">🏙️</div>
-          <div class="dc-play">▶</div>
-          <div class="dc-thumb-label">Vlog</div>
-        </div>
-        <div class="dc-body">
-          <div class="dc-tag">YouTube · Travel Vlog</div>
-          <div class="dc-title">3 Days in Shanghai — The Ultimate Guide</div>
-          <div class="dc-meta">⏱ Coming Soon</div>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="discover-card">
-        <div class="dc-thumb dc-thumb-2">
-          <div class="dc-thumb-bg">🛫</div>
-          <div class="dc-play">▶</div>
-          <div class="dc-thumb-label">TWOV Guide</div>
-        </div>
-        <div class="dc-body">
-          <div class="dc-tag">YouTube · Transit Tips</div>
-          <div class="dc-title">72-Hour Beijing Layover — What to Do</div>
-          <div class="dc-meta">⏱ Coming Soon</div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="discover-card">
-        <div class="dc-thumb dc-thumb-3">
-          <div class="dc-thumb-bg">🏝️</div>
-          <div class="dc-play">▶</div>
-          <div class="dc-thumb-label">Hainan</div>
-        </div>
-        <div class="dc-body">
-          <div class="dc-tag">YouTube · Beach Travel</div>
-          <div class="dc-title">Hainan Island — China's Tropical Paradise</div>
-          <div class="dc-meta">⏱ Coming Soon</div>
-        </div>
-      </div>
-
-      <!-- Card 4 — Add your own -->
-      <div class="discover-card dc-add-card">
-        <div class="dc-add-icon">＋</div>
-        <div class="dc-add-text">More travel content coming — check back soon!</div>
-      </div>
-    </div>
+  <div class="disclaimer">
+    Data reference: <strong>2026 policy notices</strong> — visa policies change frequently.
+    Always verify with the
+    <a href="https://en.nia.gov.cn/n147418/n147463/c183412/content.html" target="_blank" rel="noopener">China National Immigration Administration</a>,
+    <a href="https://gb.china-embassy.gov.cn/eng/visa/notice/202512/t20251201_11764210.htm" target="_blank" rel="noopener">Chinese embassy notices</a>,
+    or your nearest Chinese embassy before travel. Last content refresh: May 2026.
   </div>
 
-  <div class="disclaimer">
-    Data reference: <strong>2025–2026</strong> — visa policies change frequently.
-    Always verify with the
-    <a href="https://www.nia.gov.cn/n741440/index.html" target="_blank" rel="noopener">China National Immigration Administration</a>
-    or your nearest Chinese embassy before travel.
+  <div class="developer-card">
+    <div>
+      <div class="developer-kicker">Developer Contact</div>
+      <div class="developer-name">DaxZ Zhao</div>
+    </div>
+    <a class="developer-link" href="https://x.com/DZhao3007" target="_blank" rel="noopener">𝕏 @DZhao3007</a>
   </div>
 </div>
 
@@ -946,158 +836,158 @@
 // ─────────────────────────────────────────────────────────────────
 const COUNTRIES = [
   /* ── EU 27 ── */
-  {code:"AT",name:"Austria",          flag:"🇦🇹",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Part of China's Dec 2023 unilateral expansion"},
-  {code:"BE",name:"Belgium",          flag:"🇧🇪",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Part of China's Dec 2023 unilateral expansion"},
-  {code:"BG",name:"Bulgaria",         flag:"🇧🇬",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"HR",name:"Croatia",          flag:"🇭🇷",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"CY",name:"Cyprus",           flag:"🇨🇾",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"CZ",name:"Czech Republic",   flag:"🇨🇿",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"DK",name:"Denmark",          flag:"🇩🇰",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"EE",name:"Estonia",          flag:"🇪🇪",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"FI",name:"Finland",          flag:"🇫🇮",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"FR",name:"France",           flag:"🇫🇷",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"One of the original 6 countries in China's 2023 expansion"},
-  {code:"DE",name:"Germany",          flag:"🇩🇪",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"One of the original 6 countries in China's 2023 expansion"},
-  {code:"GR",name:"Greece",           flag:"🇬🇷",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"HU",name:"Hungary",          flag:"🇭🇺",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"IE",name:"Ireland",          flag:"🇮🇪",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"IT",name:"Italy",            flag:"🇮🇹",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"One of the original 6 countries in China's 2023 expansion"},
-  {code:"LV",name:"Latvia",           flag:"🇱🇻",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"LT",name:"Lithuania",        flag:"🇱🇹",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"LU",name:"Luxembourg",       flag:"🇱🇺",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"MT",name:"Malta",            flag:"🇲🇹",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"NL",name:"Netherlands",      flag:"🇳🇱",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"One of the original 6 countries in China's 2023 expansion"},
-  {code:"PL",name:"Poland",           flag:"🇵🇱",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"PT",name:"Portugal",         flag:"🇵🇹",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"RO",name:"Romania",          flag:"🇷🇴",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"SK",name:"Slovakia",         flag:"🇸🇰",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"SI",name:"Slovenia",         flag:"🇸🇮",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"ES",name:"Spain",            flag:"🇪🇸",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"One of the original 6 countries in China's 2023 expansion"},
-  {code:"SE",name:"Sweden",           flag:"🇸🇪",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
+  {code:"AT",name:"Austria",          flag:"🇦🇹",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"BE",name:"Belgium",          flag:"🇧🇪",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"BG",name:"Bulgaria",         flag:"🇧🇬",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"HR",name:"Croatia",          flag:"🇭🇷",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"CY",name:"Cyprus",           flag:"🇨🇾",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"CZ",name:"Czech Republic",   flag:"🇨🇿",region:"Europe",        days:null, policy:"visa-required", hainan:true,  transit:240, note:"Eligible for 240-hour transit visa-free entry with a confirmed onward ticket to a third country/region"},
+  {code:"DK",name:"Denmark",          flag:"🇩🇰",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"EE",name:"Estonia",          flag:"🇪🇪",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"FI",name:"Finland",          flag:"🇫🇮",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"FR",name:"France",           flag:"🇫🇷",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"DE",name:"Germany",          flag:"🇩🇪",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"GR",name:"Greece",           flag:"🇬🇷",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"HU",name:"Hungary",          flag:"🇭🇺",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"IE",name:"Ireland",          flag:"🇮🇪",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"IT",name:"Italy",            flag:"🇮🇹",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"LV",name:"Latvia",           flag:"🇱🇻",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"LT",name:"Lithuania",        flag:"🇱🇹",region:"Europe",        days:null, policy:"visa-required", hainan:true,  transit:240, note:"Eligible for 240-hour transit visa-free entry with a confirmed onward ticket to a third country/region"},
+  {code:"LU",name:"Luxembourg",       flag:"🇱🇺",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"MT",name:"Malta",            flag:"🇲🇹",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"NL",name:"Netherlands",      flag:"🇳🇱",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"PL",name:"Poland",           flag:"🇵🇱",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"PT",name:"Portugal",         flag:"🇵🇹",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"RO",name:"Romania",          flag:"🇷🇴",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"SK",name:"Slovakia",         flag:"🇸🇰",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"SI",name:"Slovenia",         flag:"🇸🇮",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"ES",name:"Spain",            flag:"🇪🇸",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"SE",name:"Sweden",           flag:"🇸🇪",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"Added to the 30-day unilateral visa-free scheme from Nov 10, 2025 to Dec 31, 2026"},
   /* ── Other Europe ── */
-  {code:"AD",name:"Andorra",          flag:"🇦🇩",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"IS",name:"Iceland",          flag:"🇮🇸",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"LI",name:"Liechtenstein",    flag:"🇱🇮",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"MC",name:"Monaco",           flag:"🇲🇨",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"NO",name:"Norway",           flag:"🇳🇴",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"SM",name:"San Marino",       flag:"🇸🇲",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:""},
-  {code:"CH",name:"Switzerland",      flag:"🇨🇭",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"One of the original 6 countries in China's 2023 expansion"},
-  {code:"GB",name:"United Kingdom",   flag:"🇬🇧",region:"Europe",        days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Added to visa-free list in 2024"},
+  {code:"AD",name:"Andorra",          flag:"🇦🇩",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:null, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"IS",name:"Iceland",          flag:"🇮🇸",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"LI",name:"Liechtenstein",    flag:"🇱🇮",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:null, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"MC",name:"Monaco",           flag:"🇲🇨",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"NO",name:"Norway",           flag:"🇳🇴",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"SM",name:"San Marino",       flag:"🇸🇲",region:"Europe",        days:90, policy:"vf-bilateral",  hainan:true,  transit:null, note:"Mutual visa exemption agreement"},
+  {code:"CH",name:"Switzerland",      flag:"🇨🇭",region:"Europe",        days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"GB",name:"United Kingdom",   flag:"🇬🇧",region:"Europe",        days:null, policy:"visa-required", hainan:true,  transit:240, note:"Eligible for 240-hour transit visa-free entry with a confirmed onward ticket to a third country/region"},
   /* ── Western Balkans ── */
-  {code:"AL",name:"Albania",          flag:"🇦🇱",region:"Europe",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:"Bilateral visa-free agreement"},
-  {code:"BA",name:"Bosnia & Herzegovina",flag:"🇧🇦",region:"Europe",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"ME",name:"Montenegro",       flag:"🇲🇪",region:"Europe",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"MK",name:"North Macedonia",  flag:"🇲🇰",region:"Europe",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"RS",name:"Serbia",           flag:"🇷🇸",region:"Europe",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
+  {code:"AL",name:"Albania",          flag:"🇦🇱",region:"Europe",        days:30, policy:"vf-bilateral",  hainan:true,  transit:240, note:"Bilateral visa-free agreement"},
+  {code:"BA",name:"Bosnia & Herzegovina",flag:"🇧🇦",region:"Europe",     days:30, policy:"vf-bilateral",  hainan:true,  transit:240, note:""},
+  {code:"ME",name:"Montenegro",       flag:"🇲🇪",region:"Europe",        days:30, policy:"vf-unilateral",  hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"MK",name:"North Macedonia",  flag:"🇲🇰",region:"Europe",        days:30, policy:"vf-unilateral",  hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"RS",name:"Serbia",           flag:"🇷🇸",region:"Europe",        days:30, policy:"vf-bilateral",  hainan:true,  transit:240, note:""},
   /* ── Eurasia ── */
-  {code:"AM",name:"Armenia",          flag:"🇦🇲",region:"Eurasia",       days:10, policy:"vf-bilateral",  hainan:false, transit:144, note:""},
-  {code:"AZ",name:"Azerbaijan",       flag:"🇦🇿",region:"Eurasia",       days:10, policy:"vf-bilateral",  hainan:false, transit:144, note:"Verify current duration", uncertain:true},
-  {code:"BY",name:"Belarus",          flag:"🇧🇾",region:"Eurasia",       days:30, policy:"vf-bilateral",  hainan:false, transit:144, note:"Bilateral agreement"},
-  {code:"GE",name:"Georgia",          flag:"🇬🇪",region:"Eurasia",       days:30, policy:"vf-bilateral",  hainan:false, transit:144, note:""},
-  {code:"KZ",name:"Kazakhstan",       flag:"🇰🇿",region:"Eurasia",       days:14, policy:"vf-bilateral",  hainan:false, transit:144, note:""},
-  {code:"KG",name:"Kyrgyzstan",       flag:"🇰🇬",region:"Eurasia",       days:10, policy:"vf-bilateral",  hainan:false, transit:144, note:""},
-  {code:"MD",name:"Moldova",          flag:"🇲🇩",region:"Europe",        days:30, policy:"vf-bilateral",  hainan:false, transit:144, note:""},
-  {code:"MN",name:"Mongolia",         flag:"🇲🇳",region:"East Asia",     days:30, policy:"vf-bilateral",  hainan:false, transit:144, note:"Bilateral visa-free agreement"},
-  {code:"RU",name:"Russia",           flag:"🇷🇺",region:"Eurasia",       days:15, policy:"vf-bilateral",  hainan:false, transit:144, note:"15-day stays per visit; multiple entries allowed per year"},
-  {code:"TJ",name:"Tajikistan",       flag:"🇹🇯",region:"Eurasia",       days:15, policy:"vf-bilateral",  hainan:false, transit:144, note:""},
-  {code:"TM",name:"Turkmenistan",     flag:"🇹🇲",region:"Eurasia",       days:10, policy:"vf-bilateral",  hainan:false, transit:144, note:"Verify current duration", uncertain:true},
-  {code:"UZ",name:"Uzbekistan",       flag:"🇺🇿",region:"Eurasia",       days:10, policy:"vf-bilateral",  hainan:false, transit:144, note:""},
-  {code:"UA",name:"Ukraine",          flag:"🇺🇦",region:"Europe",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
+  {code:"AM",name:"Armenia",          flag:"🇦🇲",region:"Eurasia",       days:10, policy:"vf-bilateral",  hainan:false, transit:null, note:""},
+  {code:"AZ",name:"Azerbaijan",       flag:"🇦🇿",region:"Eurasia",       days:10, policy:"vf-bilateral",  hainan:false, transit:null, note:"Verify current duration", uncertain:true},
+  {code:"BY",name:"Belarus",          flag:"🇧🇾",region:"Eurasia",       days:30, policy:"vf-bilateral",  hainan:false, transit:240, note:"Bilateral agreement"},
+  {code:"GE",name:"Georgia",          flag:"🇬🇪",region:"Eurasia",       days:30, policy:"vf-bilateral",  hainan:false, transit:null, note:""},
+  {code:"KZ",name:"Kazakhstan",       flag:"🇰🇿",region:"Eurasia",       days:14, policy:"vf-bilateral",  hainan:false, transit:null, note:""},
+  {code:"KG",name:"Kyrgyzstan",       flag:"🇰🇬",region:"Eurasia",       days:10, policy:"vf-bilateral",  hainan:false, transit:null, note:""},
+  {code:"MD",name:"Moldova",          flag:"🇲🇩",region:"Europe",        days:30, policy:"vf-bilateral",  hainan:false, transit:null, note:""},
+  {code:"MN",name:"Mongolia",         flag:"🇲🇳",region:"East Asia",     days:30, policy:"vf-bilateral",  hainan:false, transit:null, note:"Bilateral visa-free agreement"},
+  {code:"RU",name:"Russia",           flag:"🇷🇺",region:"Eurasia",       days:15, policy:"vf-bilateral",  hainan:false, transit:240, note:"15-day stays per visit; multiple entries allowed per year"},
+  {code:"TJ",name:"Tajikistan",       flag:"🇹🇯",region:"Eurasia",       days:15, policy:"vf-bilateral",  hainan:false, transit:null, note:""},
+  {code:"TM",name:"Turkmenistan",     flag:"🇹🇲",region:"Eurasia",       days:10, policy:"vf-bilateral",  hainan:false, transit:null, note:"Verify current duration", uncertain:true},
+  {code:"UZ",name:"Uzbekistan",       flag:"🇺🇿",region:"Eurasia",       days:10, policy:"vf-bilateral",  hainan:false, transit:null, note:""},
+  {code:"UA",name:"Ukraine",          flag:"🇺🇦",region:"Europe",        days:null,policy:"visa-required",hainan:false, transit:240, note:""},
   /* ── Oceania ── */
-  {code:"AU",name:"Australia",        flag:"🇦🇺",region:"Oceania",       days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Added to China's unilateral visa-free list in 2024"},
-  {code:"FJ",name:"Fiji",             flag:"🇫🇯",region:"Oceania",       days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"KI",name:"Kiribati",         flag:"🇰🇮",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:"Established diplomatic ties with China in 2019", uncertain:true},
-  {code:"MH",name:"Marshall Islands", flag:"🇲🇭",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:"Recognizes Taiwan; standard visa required"},
-  {code:"FM",name:"Micronesia",       flag:"🇫🇲",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"NR",name:"Nauru",            flag:"🇳🇷",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"NZ",name:"New Zealand",      flag:"🇳🇿",region:"Oceania",       days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Added in 2024"},
-  {code:"PG",name:"Papua New Guinea", flag:"🇵🇬",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"PW",name:"Palau",            flag:"🇵🇼",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:"Recognizes Taiwan; standard visa required"},
-  {code:"WS",name:"Samoa",            flag:"🇼🇸",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:"Verify current status", uncertain:true},
-  {code:"SB",name:"Solomon Islands",  flag:"🇸🇧",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:"Established diplomatic ties in 2019 — verify current requirements", uncertain:true},
-  {code:"TO",name:"Tonga",            flag:"🇹🇴",region:"Oceania",       days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"TV",name:"Tuvalu",           flag:"🇹🇻",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:144, note:"Recognizes Taiwan; standard visa required"},
-  {code:"VU",name:"Vanuatu",          flag:"🇻🇺",region:"Oceania",       days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
+  {code:"AU",name:"Australia",        flag:"🇦🇺",region:"Oceania",       days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"FJ",name:"Fiji",             flag:"🇫🇯",region:"Oceania",       days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:""},
+  {code:"KI",name:"Kiribati",         flag:"🇰🇮",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:null, note:"Established diplomatic ties with China in 2019", uncertain:true},
+  {code:"MH",name:"Marshall Islands", flag:"🇲🇭",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:null, note:"Recognizes Taiwan; standard visa required"},
+  {code:"FM",name:"Micronesia",       flag:"🇫🇲",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"NR",name:"Nauru",            flag:"🇳🇷",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"NZ",name:"New Zealand",      flag:"🇳🇿",region:"Oceania",       days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"PG",name:"Papua New Guinea", flag:"🇵🇬",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"PW",name:"Palau",            flag:"🇵🇼",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:null, note:"Recognizes Taiwan; standard visa required"},
+  {code:"WS",name:"Samoa",            flag:"🇼🇸",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:null, note:"Verify current status", uncertain:true},
+  {code:"SB",name:"Solomon Islands",  flag:"🇸🇧",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:null, note:"Established diplomatic ties in 2019 — verify current requirements", uncertain:true},
+  {code:"TO",name:"Tonga",            flag:"🇹🇴",region:"Oceania",       days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:""},
+  {code:"TV",name:"Tuvalu",           flag:"🇹🇻",region:"Oceania",       days:null,policy:"visa-required",hainan:false, transit:null, note:"Recognizes Taiwan; standard visa required"},
+  {code:"VU",name:"Vanuatu",          flag:"🇻🇺",region:"Oceania",       days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:""},
   /* ── East Asia ── */
-  {code:"JP",name:"Japan",            flag:"🇯🇵",region:"East Asia",     days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Announced 2024 — verify current status before travel", uncertain:true},
-  {code:"KR",name:"South Korea",      flag:"🇰🇷",region:"East Asia",     days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Announced 2024 — verify current status", uncertain:true},
+  {code:"JP",name:"Japan",            flag:"🇯🇵",region:"East Asia",     days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"KR",name:"South Korea",      flag:"🇰🇷",region:"East Asia",     days:30, policy:"vf-unilateral", hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
   /* ── Southeast Asia ── */
-  {code:"BN",name:"Brunei",           flag:"🇧🇳",region:"SE Asia",       days:15, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"KH",name:"Cambodia",         flag:"🇰🇭",region:"SE Asia",       days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"ID",name:"Indonesia",        flag:"🇮🇩",region:"SE Asia",       days:30, policy:"vf-unilateral", hainan:true,  transit:144, note:"Added to unilateral visa-free list — verify current status", uncertain:true},
-  {code:"LA",name:"Laos",             flag:"🇱🇦",region:"SE Asia",       days:15, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"MY",name:"Malaysia",         flag:"🇲🇾",region:"SE Asia",       days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:"One of the longest-standing bilateral visa-free agreements"},
-  {code:"MM",name:"Myanmar",          flag:"🇲🇲",region:"SE Asia",       days:14, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"PH",name:"Philippines",      flag:"🇵🇭",region:"SE Asia",       days:30, policy:"vf-unilateral", hainan:true,  transit:144, note:"Verify current status", uncertain:true},
-  {code:"SG",name:"Singapore",        flag:"🇸🇬",region:"SE Asia",       days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"TH",name:"Thailand",         flag:"🇹🇭",region:"SE Asia",       days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"TL",name:"Timor-Leste",      flag:"🇹🇱",region:"SE Asia",       days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"VN",name:"Vietnam",          flag:"🇻🇳",region:"SE Asia",       days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Verify current status", uncertain:true},
+  {code:"BN",name:"Brunei",           flag:"🇧🇳",region:"SE Asia",       days:15, policy:"vf-bilateral",  hainan:true,  transit:240, note:""},
+  {code:"KH",name:"Cambodia",         flag:"🇰🇭",region:"SE Asia",       days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:""},
+  {code:"ID",name:"Indonesia",        flag:"🇮🇩",region:"SE Asia",       days:null, policy:"visa-required", hainan:true,  transit:240, note:"Eligible for 240-hour transit visa-free entry with a confirmed onward ticket to a third country/region"},
+  {code:"LA",name:"Laos",             flag:"🇱🇦",region:"SE Asia",       days:15, policy:"vf-bilateral",  hainan:true,  transit:null, note:""},
+  {code:"MY",name:"Malaysia",         flag:"🇲🇾",region:"SE Asia",       days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:"One of the longest-standing bilateral visa-free agreements"},
+  {code:"MM",name:"Myanmar",          flag:"🇲🇲",region:"SE Asia",       days:14, policy:"vf-bilateral",  hainan:true,  transit:null, note:""},
+  {code:"PH",name:"Philippines",      flag:"🇵🇭",region:"SE Asia",       days:null, policy:"visa-required", hainan:true,  transit:null, note:"Standard visa required for mainland China under current public policy lists"},
+  {code:"SG",name:"Singapore",        flag:"🇸🇬",region:"SE Asia",       days:30, policy:"vf-bilateral",  hainan:true,  transit:240, note:""},
+  {code:"TH",name:"Thailand",         flag:"🇹🇭",region:"SE Asia",       days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:""},
+  {code:"TL",name:"Timor-Leste",      flag:"🇹🇱",region:"SE Asia",       days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"VN",name:"Vietnam",          flag:"🇻🇳",region:"SE Asia",       days:null, policy:"visa-required", hainan:true,  transit:null, note:"Standard visa required for mainland China under current public policy lists"},
   /* ── South Asia ── */
-  {code:"BD",name:"Bangladesh",       flag:"🇧🇩",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"BT",name:"Bhutan",           flag:"🇧🇹",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:144, note:"No diplomatic relations with China; special arrangements required"},
-  {code:"IN",name:"India",            flag:"🇮🇳",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"MV",name:"Maldives",         flag:"🇲🇻",region:"South Asia",    days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"NP",name:"Nepal",            flag:"🇳🇵",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:144, note:"Verify — agreement status may have changed", uncertain:true},
-  {code:"PK",name:"Pakistan",         flag:"🇵🇰",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"LK",name:"Sri Lanka",        flag:"🇱🇰",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:144, note:"Verify current status", uncertain:true},
+  {code:"BD",name:"Bangladesh",       flag:"🇧🇩",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"BT",name:"Bhutan",           flag:"🇧🇹",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:null, note:"No diplomatic relations with China; special arrangements required"},
+  {code:"IN",name:"India",            flag:"🇮🇳",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"MV",name:"Maldives",         flag:"🇲🇻",region:"South Asia",    days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:""},
+  {code:"NP",name:"Nepal",            flag:"🇳🇵",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:null, note:"Verify — agreement status may have changed", uncertain:true},
+  {code:"PK",name:"Pakistan",         flag:"🇵🇰",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"LK",name:"Sri Lanka",        flag:"🇱🇰",region:"South Asia",    days:null,policy:"visa-required",hainan:false, transit:null, note:"Verify current status", uncertain:true},
   /* ── Middle East ── */
-  {code:"BH",name:"Bahrain",          flag:"🇧🇭",region:"Middle East",   days:30, policy:"vf-bilateral",  hainan:false, transit:144, note:"Verify current duration", uncertain:true},
-  {code:"IR",name:"Iran",             flag:"🇮🇷",region:"Middle East",   days:30, policy:"vf-bilateral",  hainan:false, transit:144, note:"Bilateral agreement"},
-  {code:"IL",name:"Israel",           flag:"🇮🇱",region:"Middle East",   days:15, policy:"vf-unilateral", hainan:true,  transit:144, note:"Added in 2024 — verify current status", uncertain:true},
-  {code:"IQ",name:"Iraq",             flag:"🇮🇶",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"JO",name:"Jordan",           flag:"🇯🇴",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"KW",name:"Kuwait",           flag:"🇰🇼",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"LB",name:"Lebanon",          flag:"🇱🇧",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:144, note:"Verify current requirements", uncertain:true},
-  {code:"OM",name:"Oman",             flag:"🇴🇲",region:"Middle East",   days:30, policy:"vf-bilateral",  hainan:false, transit:144, note:"Verify current status", uncertain:true},
-  {code:"QA",name:"Qatar",            flag:"🇶🇦",region:"Middle East",   days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"SA",name:"Saudi Arabia",     flag:"🇸🇦",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"TR",name:"Turkey",           flag:"🇹🇷",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"AE",name:"UAE",              flag:"🇦🇪",region:"Middle East",   days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"YE",name:"Yemen",            flag:"🇾🇪",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:144, note:""},
+  {code:"BH",name:"Bahrain",          flag:"🇧🇭",region:"Middle East",   days:30, policy:"vf-unilateral",  hainan:false, transit:null, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"IR",name:"Iran",             flag:"🇮🇷",region:"Middle East",   days:30, policy:"vf-bilateral",  hainan:false, transit:null, note:"Bilateral agreement"},
+  {code:"IL",name:"Israel",           flag:"🇮🇱",region:"Middle East",   days:null, policy:"visa-required", hainan:true,  transit:null, note:"Standard visa required for mainland China under current public policy lists"},
+  {code:"IQ",name:"Iraq",             flag:"🇮🇶",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"JO",name:"Jordan",           flag:"🇯🇴",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"KW",name:"Kuwait",           flag:"🇰🇼",region:"Middle East",   days:30,policy:"vf-unilateral",hainan:false, transit:null, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"LB",name:"Lebanon",          flag:"🇱🇧",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:null, note:"Verify current requirements", uncertain:true},
+  {code:"OM",name:"Oman",             flag:"🇴🇲",region:"Middle East",   days:30, policy:"vf-unilateral",  hainan:false, transit:null, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"QA",name:"Qatar",            flag:"🇶🇦",region:"Middle East",   days:30, policy:"vf-bilateral",  hainan:true,  transit:240, note:""},
+  {code:"SA",name:"Saudi Arabia",     flag:"🇸🇦",region:"Middle East",   days:30,policy:"vf-unilateral",hainan:false, transit:null, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"TR",name:"Turkey",           flag:"🇹🇷",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"AE",name:"UAE",              flag:"🇦🇪",region:"Middle East",   days:30, policy:"vf-bilateral",  hainan:true,  transit:240, note:""},
+  {code:"YE",name:"Yemen",            flag:"🇾🇪",region:"Middle East",   days:null,policy:"visa-required",hainan:false, transit:null, note:""},
   /* ── Africa ── */
-  {code:"AO",name:"Angola",           flag:"🇦🇴",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"CM",name:"Cameroon",         flag:"🇨🇲",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"CI",name:"Côte d'Ivoire",    flag:"🇨🇮",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"EG",name:"Egypt",            flag:"🇪🇬",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"ET",name:"Ethiopia",         flag:"🇪🇹",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"GH",name:"Ghana",            flag:"🇬🇭",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"KE",name:"Kenya",            flag:"🇰🇪",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"MA",name:"Morocco",          flag:"🇲🇦",region:"Africa",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"MU",name:"Mauritius",        flag:"🇲🇺",region:"Africa",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:"Verify current status", uncertain:true},
-  {code:"NG",name:"Nigeria",          flag:"🇳🇬",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"RW",name:"Rwanda",           flag:"🇷🇼",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"SN",name:"Senegal",          flag:"🇸🇳",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"TN",name:"Tunisia",          flag:"🇹🇳",region:"Africa",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"TZ",name:"Tanzania",         flag:"🇹🇿",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"UG",name:"Uganda",           flag:"🇺🇬",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"ZA",name:"South Africa",     flag:"🇿🇦",region:"Africa",        days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"ZM",name:"Zambia",           flag:"🇿🇲",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"ZW",name:"Zimbabwe",         flag:"🇿🇼",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:144, note:""},
+  {code:"AO",name:"Angola",           flag:"🇦🇴",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"CM",name:"Cameroon",         flag:"🇨🇲",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"CI",name:"Côte d'Ivoire",    flag:"🇨🇮",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"EG",name:"Egypt",            flag:"🇪🇬",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"ET",name:"Ethiopia",         flag:"🇪🇹",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"GH",name:"Ghana",            flag:"🇬🇭",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"KE",name:"Kenya",            flag:"🇰🇪",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"MA",name:"Morocco",          flag:"🇲🇦",region:"Africa",        days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:""},
+  {code:"MU",name:"Mauritius",        flag:"🇲🇺",region:"Africa",        days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:"Verify current status", uncertain:true},
+  {code:"NG",name:"Nigeria",          flag:"🇳🇬",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"RW",name:"Rwanda",           flag:"🇷🇼",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"SN",name:"Senegal",          flag:"🇸🇳",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"TN",name:"Tunisia",          flag:"🇹🇳",region:"Africa",        days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:""},
+  {code:"TZ",name:"Tanzania",         flag:"🇹🇿",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"UG",name:"Uganda",           flag:"🇺🇬",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"ZA",name:"South Africa",     flag:"🇿🇦",region:"Africa",        days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:""},
+  {code:"ZM",name:"Zambia",           flag:"🇿🇲",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"ZW",name:"Zimbabwe",         flag:"🇿🇼",region:"Africa",        days:null,policy:"visa-required",hainan:false, transit:null, note:""},
   /* ── Americas ── */
-  {code:"AG",name:"Antigua & Barbuda",flag:"🇦🇬",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"AR",name:"Argentina",        flag:"🇦🇷",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"BS",name:"Bahamas",          flag:"🇧🇸",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"BB",name:"Barbados",         flag:"🇧🇧",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"BO",name:"Bolivia",          flag:"🇧🇴",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"Verify current status", uncertain:true},
-  {code:"BR",name:"Brazil",           flag:"🇧🇷",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"CA",name:"Canada",           flag:"🇨🇦",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"144h TWOV available at major airports"},
-  {code:"CL",name:"Chile",            flag:"🇨🇱",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"CO",name:"Colombia",         flag:"🇨🇴",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"Verify current status", uncertain:true},
-  {code:"CR",name:"Costa Rica",       flag:"🇨🇷",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"CU",name:"Cuba",             flag:"🇨🇺",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"DO",name:"Dominican Republic",flag:"🇩🇴",region:"Americas",    days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"EC",name:"Ecuador",          flag:"🇪🇨",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"GT",name:"Guatemala",        flag:"🇬🇹",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"Recognizes Taiwan; standard visa required"},
-  {code:"HN",name:"Honduras",         flag:"🇭🇳",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"Established diplomatic ties in 2023 — verify current requirements", uncertain:true},
-  {code:"JM",name:"Jamaica",          flag:"🇯🇲",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"MX",name:"Mexico",           flag:"🇲🇽",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:""},
-  {code:"NI",name:"Nicaragua",        flag:"🇳🇮",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"Established diplomatic ties in 2022 — verify current requirements", uncertain:true},
-  {code:"PA",name:"Panama",           flag:"🇵🇦",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:"Agreement after establishing diplomatic ties in 2017", uncertain:true},
-  {code:"PE",name:"Peru",             flag:"🇵🇪",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"TT",name:"Trinidad & Tobago",flag:"🇹🇹",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:"Bilateral visa-free agreement", uncertain:true},
-  {code:"UY",name:"Uruguay",          flag:"🇺🇾",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:144, note:""},
-  {code:"US",name:"United States",    flag:"🇺🇸",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"Visa required; 144-hour TWOV available at major airports"},
-  {code:"VE",name:"Venezuela",        flag:"🇻🇪",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:144, note:"Verify current status", uncertain:true},
+  {code:"AG",name:"Antigua & Barbuda",flag:"🇦🇬",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:""},
+  {code:"AR",name:"Argentina",        flag:"🇦🇷",region:"Americas",     days:30, policy:"vf-unilateral",  hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"BS",name:"Bahamas",          flag:"🇧🇸",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"BB",name:"Barbados",         flag:"🇧🇧",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:""},
+  {code:"BO",name:"Bolivia",          flag:"🇧🇴",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:null, note:"Verify current status", uncertain:true},
+  {code:"BR",name:"Brazil",           flag:"🇧🇷",region:"Americas",     days:30, policy:"vf-unilateral",  hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"CA",name:"Canada",           flag:"🇨🇦",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:240, note:"240-hour TWOV available on eligible routes"},
+  {code:"CL",name:"Chile",            flag:"🇨🇱",region:"Americas",     days:30, policy:"vf-unilateral",  hainan:true,  transit:240, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"CO",name:"Colombia",         flag:"🇨🇴",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:null, note:"Verify current status", uncertain:true},
+  {code:"CR",name:"Costa Rica",       flag:"🇨🇷",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"CU",name:"Cuba",             flag:"🇨🇺",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:""},
+  {code:"DO",name:"Dominican Republic",flag:"🇩🇴",region:"Americas",    days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"EC",name:"Ecuador",          flag:"🇪🇨",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:""},
+  {code:"GT",name:"Guatemala",        flag:"🇬🇹",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:null, note:"Recognizes Taiwan; standard visa required"},
+  {code:"HN",name:"Honduras",         flag:"🇭🇳",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:null, note:"Established diplomatic ties in 2023 — verify current requirements", uncertain:true},
+  {code:"JM",name:"Jamaica",          flag:"🇯🇲",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:null, note:""},
+  {code:"MX",name:"Mexico",           flag:"🇲🇽",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:240, note:""},
+  {code:"NI",name:"Nicaragua",        flag:"🇳🇮",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:null, note:"Established diplomatic ties in 2022 — verify current requirements", uncertain:true},
+  {code:"PA",name:"Panama",           flag:"🇵🇦",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:"Agreement after establishing diplomatic ties in 2017", uncertain:true},
+  {code:"PE",name:"Peru",             flag:"🇵🇪",region:"Americas",     days:30, policy:"vf-unilateral",  hainan:true,  transit:null, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"TT",name:"Trinidad & Tobago",flag:"🇹🇹",region:"Americas",     days:30, policy:"vf-bilateral",  hainan:true,  transit:null, note:"Bilateral visa-free agreement", uncertain:true},
+  {code:"UY",name:"Uruguay",          flag:"🇺🇾",region:"Americas",     days:30, policy:"vf-unilateral",  hainan:true,  transit:null, note:"30-day unilateral visa-free policy valid until Dec 31, 2026"},
+  {code:"US",name:"United States",    flag:"🇺🇸",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:240, note:"Visa required; 240-hour TWOV available on eligible routes"},
+  {code:"VE",name:"Venezuela",        flag:"🇻🇪",region:"Americas",     days:null,policy:"visa-required",hainan:false, transit:null, note:"Verify current status", uncertain:true},
 ];
 
 const TWOV_CITIES = [
@@ -1289,11 +1179,13 @@ const CITY_DATA = {
 
 const MAJOR_AIRPORTS = [
   "Beijing Capital (PEK)","Beijing Daxing (PKX)","Shanghai Pudong (PVG)",
-  "Shanghai Hongqiao (SHA)","Guangzhou Baiyun (CAN)","Shenzhen (SZX)",
-  "Chengdu Tianfu (TFU)","Chengdu Shuangliu (CTU)","Chongqing (CKG)",
-  "Hangzhou (HGH)","Nanjing (NKG)","Xiamen (XMN)","Wuhan (WUH)",
-  "Xi'an (XIY)","Tianjin (TSN)","Kunming (KMG)","Qingdao (TAO)",
-  "Shenyang (SHE)","Harbin (HRB)","Dalian (DLC)","Haikou (HAK)","Sanya (SYX)"
+  "Shanghai Hongqiao (SHA)","Guangzhou Baiyun (CAN)","Shenzhen Bao'an (SZX)",
+  "Chengdu Tianfu (TFU)","Chengdu Shuangliu (CTU)","Chongqing Jiangbei (CKG)",
+  "Hangzhou Xiaoshan (HGH)","Nanjing Lukou (NKG)","Xiamen Gaoqi (XMN)",
+  "Wuhan Tianhe (WUH)","Xi'an Xianyang (XIY)","Tianjin Binhai (TSN)",
+  "Kunming Changshui (KMG)","Qingdao Jiaodong (TAO)","Shenyang Taoxian (SHE)",
+  "Harbin Taiping (HRB)","Dalian Zhoushuizi (DLC)","Haikou Meilan (HAK)",
+  "Sanya Phoenix (SYX)","West Kowloon HSR","Hong Kong-Zhuhai-Macao Bridge"
 ];
 
 const POPULAR_CODES = ["US","GB","DE","FR","AU","CA","JP","KR","SG","IN","TH","BR"];
@@ -1421,7 +1313,7 @@ function renderResults(c) {
       <div class="warn-box res-animated" style="animation-delay:.04s">
         <span>⚠️</span>
         <div>${c.note} — Please confirm with the
-          <a href="https://www.nia.gov.cn/n741440/index.html" target="_blank" rel="noopener">China National Immigration Administration</a>
+          <a href="https://en.nia.gov.cn/n147418/n147463/c183412/content.html" target="_blank" rel="noopener">China National Immigration Administration</a>
           or your local Chinese embassy before booking.
         </div>
       </div>`;
@@ -1466,7 +1358,7 @@ function renderResults(c) {
         <div class="stat-body">
           <div class="stat-label">Max Stay</div>
           <div class="stat-value sv-green">${c.days} days</div>
-          <div class="stat-sub">Per entry · Single-use unless noted</div>
+          <div class="stat-sub">Per entry · Ordinary passports unless noted</div>
         </div>
       </div>`;
   } else if (c.transit) {
@@ -1500,20 +1392,20 @@ function renderResults(c) {
         <div class="sc-header">
           <div class="sc-icon">✈️</div>
           <div><div class="sc-title">Ports of Entry</div>
-          <div class="sc-sub">All international airports &amp; designated sea/land ports</div></div>
+          <div class="sc-sub">International airports and designated sea, land, and rail ports</div></div>
         </div>
         <div class="tag-list">
           ${MAJOR_AIRPORTS.map(p => `<span class="tag tag-port">${p}</span>`).join('')}
         </div>
-        <p class="tag-note">Check with your airline for specific port availability on your route.</p>
+        <p class="tag-note">Port availability varies by route. Confirm with your carrier or port immigration before travel.</p>
       </div>`;
   }
 
   // ── TWOV section ──
   if (c.transit) {
     const twovNote = isVF
-      ? `Even with visa-free entry, TWOV lets you explore a city without using your visa-free quota — ideal for short stopovers.`
-      : `No mainland visa? No problem! Explore China for up to ${c.transit} hours during a layover, completely visa-free.`;
+      ? `Even with visa-free entry, 240-hour TWOV can be useful for genuine third-country transit through China.`
+      : `No mainland visa? You may be able to enter China for up to ${c.transit} hours when transiting to a third country or region.`;
 
     html += `
       <div class="section-card res-animated" style="animation-delay:.14s">
@@ -1522,16 +1414,16 @@ function renderResults(c) {
           <div><div class="sc-title">${c.transit}-Hour Transit Visa-Free (TWOV)</div>
           <div class="sc-sub">${twovNote}</div></div>
         </div>
-        <div style="font-size:.8rem;font-weight:600;color:var(--gray-700);margin-bottom:8px">📍 Available cities:</div>
+        <div style="font-size:.8rem;font-weight:600;color:var(--gray-700);margin-bottom:8px">📍 Major eligible cities and ports:</div>
         <div class="tag-list">
           ${TWOV_CITIES.map(city => `<span class="tag tag-city" onclick="showCityModal('${city.replace("'","&#39;")}')" title="Click to explore ${city}">${city}</span>`).join('')}
         </div>
         <div class="twov-req">
           <strong>Requirements:</strong><br>
-          ① Valid passport &nbsp; ② Onward ticket to a 3rd country within ${c.transit} hours<br>
-          ③ Stay within the designated city travel zone<br>
-          ④ Shanghai zone extends to Jiangsu &amp; Zhejiang (144h only)<br>
-          ⑤ Some nationalities may still need a transit visa — confirm with your airline
+          ① Valid passport &nbsp; ② Confirmed onward ticket to a third country/region within ${c.transit} hours<br>
+          ③ Enter and exit through eligible ports in the 24 permitted provincial-level regions<br>
+          ④ Stay within the permitted travel areas; cross-region rules depend on your route<br>
+          ⑤ Confirm eligibility with your airline and port immigration before departure
         </div>
       </div>`;
   }
@@ -1570,8 +1462,9 @@ function renderResults(c) {
           <li>Most tourists apply for an <strong>L-type (tourist) visa</strong></li>
         </ul>
         <p style="margin-top:12px">
-          💡 <strong>Tip:</strong> Even without a visa, you can use the
-          <strong>${c.transit || 144}-hour TWOV</strong> to explore major Chinese cities during a layover — no visa needed!
+          💡 <strong>Tip:</strong> ${c.transit
+            ? `Even without a visa, you may use <strong>${c.transit}-hour TWOV</strong> to explore eligible Chinese cities during a qualifying third-country transit.`
+            : `If your itinerary includes China, confirm whether a transit visa or regular visa is required before departure.`}
         </p>
       </div>`;
   }
@@ -1676,7 +1569,7 @@ function shareToX(code, name, isVFStr, days) {
   const isVF   = isVFStr === 'true';
   const status = isVF
     ? `✅ ${name} passport → Visa-free entry to China! (up to ${days} days)`
-    : `${name} passport → Visa required for China mainland. But 144h transit is available!`;
+    : `${name} passport → Visa required for China mainland. 240h transit may be available on eligible routes.`;
   const url    = `https://nihaochina.cc/#${code}`;
   const tweet  = encodeURIComponent(`${status}\n\nCheck your passport: ${url}`);
   window.open(`https://x.com/intent/tweet?text=${tweet}`, '_blank', 'noopener,noreferrer');
