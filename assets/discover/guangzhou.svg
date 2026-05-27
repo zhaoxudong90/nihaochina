@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="Guangzhou travel cover">
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#184d47"/><stop offset=".6" stop-color="#28705f"/><stop offset="1" stop-color="#c79835"/></linearGradient></defs>
+  <rect width="480" height="360" fill="url(#g)"/><path d="M0 250c75-28 135-20 204 8 84 34 176 20 276-31v133H0z" fill="#fff" opacity=".13"/>
+  <g fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".88"><path d="M238 276V80M206 112h64M216 156h44M204 204h68M180 276h116M238 80l-26 42M238 80l26 42M136 276v-74h48v74M318 276v-92h48v92"/></g>
+  <circle cx="386" cy="80" r="32" fill="#fef3c7" opacity=".72"/>
+</svg>

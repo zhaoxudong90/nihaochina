@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="Energetic China travel vlog cover">
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#111827"/><stop offset=".58" stop-color="#475569"/><stop offset="1" stop-color="#94a3b8"/></linearGradient></defs>
+  <rect width="480" height="360" fill="url(#g)"/><g fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity=".88"><path d="M106 224l116-54 16-76 34 58 100-46-78 82 34 84-82-48-98 46 54-74z"/><path d="M118 286h244"/></g>
+</svg>

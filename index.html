@@ -40,6 +40,28 @@
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Discover China English Travel Videos and City Guides",
+    "description": "Curated English China travel guide links, China travel vlog channels, city explorer resources, and China travel creators for foreign visitors.",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Beijing Travel Guide", "url": "https://www.youtube.com/results?search_query=Beijing+China+travel+vlog+English" },
+      { "@type": "ListItem", "position": 2, "name": "Shanghai Travel Guide", "url": "https://www.youtube.com/results?search_query=Shanghai+China+travel+vlog+English" },
+      { "@type": "ListItem", "position": 3, "name": "Chongqing Travel Guide", "url": "https://www.youtube.com/results?search_query=Chongqing+China+travel+vlog+English" },
+      { "@type": "ListItem", "position": 4, "name": "Guangzhou China Travel Vlogs", "url": "https://www.youtube.com/results?search_query=Guangzhou+China+travel+vlog+English" },
+      { "@type": "ListItem", "position": 5, "name": "Shenzhen China Travel Vlogs", "url": "https://www.youtube.com/results?search_query=Shenzhen+China+travel+vlog+English" },
+      { "@type": "ListItem", "position": 6, "name": "Guilin Yangshuo China Travel Vlogs", "url": "https://www.youtube.com/results?search_query=Guilin+Yangshuo+China+travel+vlog+English" },
+      { "@type": "ListItem", "position": 7, "name": "Little Chinese Everywhere", "url": "https://www.youtube.com/@littlechineseeverywhere" },
+      { "@type": "ListItem", "position": 8, "name": "Blondie in China", "url": "https://www.youtube.com/@BlondieinChina" },
+      { "@type": "ListItem", "position": 9, "name": "Flora and Note", "url": "https://www.youtube.com/@FloraandNote" },
+      { "@type": "ListItem", "position": 10, "name": "JetLag Warriors", "url": "https://www.youtube.com/@JetLagWarriors" },
+      { "@type": "ListItem", "position": 11, "name": "The Food Ranger China Street Food", "url": "https://www.youtube.com/results?search_query=The+Food+Ranger+China+street+food" },
+      { "@type": "ListItem", "position": 12, "name": "Strictly Dumpling China Food Travel", "url": "https://www.youtube.com/results?search_query=Strictly+Dumpling+China+food+travel" }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -602,6 +624,194 @@
     .apply-card ul { font-size: .87rem; color: var(--gray-600); line-height: 1.85; padding-left: 20px; margin-top: 10px; }
 
     /* ════════════════════════════════════════
+       DISCOVER CHINA
+    ════════════════════════════════════════ */
+    .discover-china {
+      margin-top: 42px;
+      padding: 26px;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.9), rgba(248,250,252,.78)),
+        linear-gradient(135deg, rgba(185,31,46,.06), rgba(47,95,152,.06));
+      border: 1px solid rgba(255,255,255,.88);
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(18px);
+    }
+    .discover-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .discover-kicker {
+      color: var(--red);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .discover-head h2 {
+      color: var(--gray-900);
+      font-size: 1.65rem;
+      line-height: 1.08;
+      font-weight: 800;
+    }
+    .discover-head p {
+      max-width: 520px;
+      color: var(--gray-500);
+      font-size: .9rem;
+      line-height: 1.65;
+      margin-top: 8px;
+    }
+    .discover-tabs {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      border-radius: 999px;
+      background: rgba(17,24,39,.06);
+      border: 1px solid rgba(255,255,255,.9);
+      flex-shrink: 0;
+    }
+    .discover-tab {
+      border: none;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--gray-600);
+      cursor: pointer;
+      font: inherit;
+      font-size: .8rem;
+      font-weight: 800;
+      min-height: 34px;
+      padding: 7px 13px;
+      transition: background .16s, color .16s, box-shadow .16s;
+    }
+    .discover-tab.active {
+      background: #fff;
+      color: var(--gray-900);
+      box-shadow: var(--shadow-sm);
+    }
+    .discover-panel { display: none; }
+    .discover-panel.active { display: block; animation: fadeInUp .24s ease-out; }
+    .discover-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .discover-card {
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      min-height: 152px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(255,255,255,.92);
+      box-shadow: var(--shadow-sm);
+      color: inherit;
+      text-decoration: none;
+      transition: transform .18s, box-shadow .18s, border-color .18s;
+    }
+    .discover-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(185,31,46,.22);
+      box-shadow: var(--shadow);
+    }
+    .discover-thumb {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      min-height: 100%;
+      padding: 14px;
+      color: #fff;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1f2937, #475569);
+    }
+    .discover-thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .discover-thumb::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.13) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.13) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: .4;
+    }
+    .discover-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 20%, rgba(0,0,0,.38));
+    }
+    .thumb-mark {
+      position: relative;
+      z-index: 1;
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .discover-body {
+      padding: 15px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .discover-body h3 {
+      color: var(--gray-900);
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .discover-body p {
+      color: var(--gray-600);
+      font-size: .82rem;
+      line-height: 1.55;
+    }
+    .discover-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: auto;
+    }
+    .discover-keywords span {
+      border-radius: 999px;
+      background: rgba(17,24,39,.06);
+      color: var(--gray-600);
+      font-size: .68rem;
+      font-weight: 700;
+      padding: 3px 8px;
+    }
+    .discover-cta {
+      color: var(--red);
+      font-size: .76rem;
+      font-weight: 800;
+    }
+    @media (max-width: 760px) {
+      .discover-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .discover-tabs { width: 100%; }
+      .discover-tab { flex: 1; }
+      .discover-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 420px) {
+      .discover-china { padding: 18px; border-radius: 20px; }
+      .discover-card { grid-template-columns: 92px 1fr; }
+      .discover-body { padding: 13px; }
+      .discover-body h3 { font-size: .94rem; }
+      .discover-body p { font-size: .78rem; }
+    }
+
+    /* ════════════════════════════════════════
        DISCLAIMER + FOOTER
     ════════════════════════════════════════ */
     .disclaimer {
@@ -855,6 +1065,148 @@
       <div class="chip-grid" id="chipGrid"></div>
     </div>
   </div>
+
+  <section class="discover-china" aria-labelledby="discoverChinaTitle">
+    <div class="discover-head">
+      <div>
+        <div class="discover-kicker">China Travel Guide</div>
+        <h2 id="discoverChinaTitle">Discover China</h2>
+        <p>Curated English China travel vlogs, city guides, and travel creators for planning your Beijing, Shanghai, Chongqing, Guilin, Guangzhou, Shenzhen, and broader China trip.</p>
+      </div>
+      <div class="discover-tabs" role="tablist" aria-label="Discover China categories">
+        <button class="discover-tab active" type="button" role="tab" aria-selected="true" aria-controls="discoverCities" data-discover-tab="cities">City Explorer</button>
+        <button class="discover-tab" type="button" role="tab" aria-selected="false" aria-controls="discoverCreators" data-discover-tab="creators">Travel Creators</button>
+      </div>
+    </div>
+
+    <div class="discover-panel active" id="discoverCities" role="tabpanel">
+      <div class="discover-grid">
+        <a class="discover-card" href="https://www.youtube.com/results?search_query=Beijing+China+travel+vlog+English" aria-label="Open Beijing China travel vlogs on YouTube">
+          <div class="discover-thumb"><img src="assets/discover/beijing.svg" alt="Beijing travel video cover"><div class="thumb-mark">BJ</div></div>
+          <div class="discover-body">
+            <h3>Beijing Travel Guide</h3>
+            <p>Explore the Great Wall, Forbidden City, Temple of Heaven, hutongs, and classic Beijing food through English travel videos.</p>
+            <div class="discover-keywords"><span>Beijing travel</span><span>Great Wall</span><span>Forbidden City</span></div>
+            <div class="discover-cta">Watch on YouTube -></div>
+          </div>
+        </a>
+
+        <a class="discover-card" href="https://www.youtube.com/results?search_query=Shanghai+China+travel+vlog+English" aria-label="Open Shanghai China travel vlogs on YouTube">
+          <div class="discover-thumb"><img src="assets/discover/shanghai.svg" alt="Shanghai travel video cover"><div class="thumb-mark">SH</div></div>
+          <div class="discover-body">
+            <h3>Shanghai Travel Guide</h3>
+            <p>Plan Shanghai with English videos covering The Bund, Yu Garden, Nanjing Road, Shanghai Tower, and metro travel tips.</p>
+            <div class="discover-keywords"><span>Shanghai travel</span><span>The Bund</span><span>Yu Garden</span></div>
+            <div class="discover-cta">Watch on YouTube -></div>
+          </div>
+        </a>
+
+        <a class="discover-card" href="https://www.youtube.com/results?search_query=Chongqing+China+travel+vlog+English" aria-label="Open Chongqing China travel vlogs on YouTube">
+          <div class="discover-thumb"><img src="assets/discover/chongqing.svg" alt="Chongqing travel video cover"><div class="thumb-mark">CQ</div></div>
+          <div class="discover-body">
+            <h3>Chongqing Travel Guide</h3>
+            <p>Watch Chongqing travel vlogs for Hongyadong, Liziba monorail, Ciqikou, Jiefangbei, hotpot, and mountain city views.</p>
+            <div class="discover-keywords"><span>Chongqing travel</span><span>Hongyadong</span><span>Hotpot</span></div>
+            <div class="discover-cta">Watch on YouTube -></div>
+          </div>
+        </a>
+
+        <a class="discover-card" href="https://www.youtube.com/results?search_query=Guangzhou+China+travel+vlog+English" aria-label="Open Guangzhou China travel vlogs on YouTube">
+          <div class="discover-thumb"><img src="assets/discover/guangzhou.svg" alt="Guangzhou travel video cover"><div class="thumb-mark">GZ</div></div>
+          <div class="discover-body">
+            <h3>Guangzhou Travel Vlogs</h3>
+            <p>Find English Guangzhou travel vlogs about dim sum, Cantonese food, Shamian Island, Canton Tower, markets, and old city streets.</p>
+            <div class="discover-keywords"><span>Guangzhou travel</span><span>Dim sum</span><span>Canton Tower</span></div>
+            <div class="discover-cta">Watch videos -></div>
+          </div>
+        </a>
+
+        <a class="discover-card" href="https://www.youtube.com/results?search_query=Shenzhen+China+travel+vlog+English" aria-label="Open Shenzhen China travel vlogs on YouTube">
+          <div class="discover-thumb"><img src="assets/discover/shenzhen.svg" alt="Shenzhen travel video cover"><div class="thumb-mark">SZ</div></div>
+          <div class="discover-body">
+            <h3>Shenzhen Travel Vlogs</h3>
+            <p>Discover Shenzhen travel videos covering tech districts, design spaces, coastal parks, modern malls, and easy Hong Kong connections.</p>
+            <div class="discover-keywords"><span>Shenzhen travel</span><span>Tech city</span><span>Coastal parks</span></div>
+            <div class="discover-cta">Watch videos -></div>
+          </div>
+        </a>
+
+        <a class="discover-card" href="https://www.youtube.com/results?search_query=Guilin+Yangshuo+China+travel+vlog+English" aria-label="Open Guilin and Yangshuo China travel vlogs on YouTube">
+          <div class="discover-thumb"><img src="assets/discover/guilin.svg" alt="Guilin and Yangshuo travel video cover"><div class="thumb-mark">GL</div></div>
+          <div class="discover-body">
+            <h3>Guilin &amp; Yangshuo Vlogs</h3>
+            <p>Browse English Guilin and Yangshuo travel vlogs for Li River scenery, karst mountains, bamboo rafts, cycling, and countryside stays.</p>
+            <div class="discover-keywords"><span>Guilin Yangshuo</span><span>Li River</span><span>Karst scenery</span></div>
+            <div class="discover-cta">Watch videos -></div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="discover-panel" id="discoverCreators" role="tabpanel" hidden>
+      <div class="discover-grid">
+        <a class="discover-card" href="https://www.youtube.com/@littlechineseeverywhere" aria-label="Open Little Chinese Everywhere YouTube channel">
+          <div class="discover-thumb"><img src="assets/discover/little-chinese-everywhere.svg" alt="China travel creator cover"><div class="thumb-mark">LC</div></div>
+          <div class="discover-body">
+            <h3>Little Chinese Everywhere</h3>
+            <p>Human geography, local culture, lesser-known destinations, and thoughtful English China travel stories across provinces.</p>
+            <div class="discover-keywords"><span>China culture</span><span>Hidden China</span><span>Human geography</span></div>
+            <div class="discover-cta">Open channel -></div>
+          </div>
+        </a>
+
+        <a class="discover-card" href="https://www.youtube.com/@BlondieinChina" aria-label="Open Blondie in China YouTube channel">
+          <div class="discover-thumb"><img src="assets/discover/blondie-in-china.svg" alt="China food travel creator cover"><div class="thumb-mark">BI</div></div>
+          <div class="discover-body">
+            <h3>Blondie in China</h3>
+            <p>Food-driven China travel vlogs with strong regional culture, street food, local stories, and city-by-city discoveries.</p>
+            <div class="discover-keywords"><span>China food</span><span>Local culture</span><span>Regional travel</span></div>
+            <div class="discover-cta">Open channel -></div>
+          </div>
+        </a>
+
+        <a class="discover-card" href="https://www.youtube.com/@FloraandNote" aria-label="Open Flora and Note YouTube channel">
+          <div class="discover-thumb"><img src="assets/discover/flora-and-note.svg" alt="China city vlog creator cover"><div class="thumb-mark">FN</div></div>
+          <div class="discover-body">
+            <h3>Flora and Note</h3>
+            <p>Friendly English travel vlogs for first-time China visitors, with city walks, food reactions, transport, and planning details.</p>
+            <div class="discover-keywords"><span>First-time China</span><span>City walks</span><span>Travel couple</span></div>
+            <div class="discover-cta">Open channel -></div>
+          </div>
+        </a>
+
+        <a class="discover-card" href="https://www.youtube.com/@JetLagWarriors" aria-label="Open JetLag Warriors YouTube channel">
+          <div class="discover-thumb"><img src="assets/discover/jetlag-warriors.svg" alt="China travel vlog creator cover"><div class="thumb-mark">JW</div></div>
+          <div class="discover-body">
+            <h3>JetLag Warriors</h3>
+            <p>Energetic travel vlogs with practical first impressions, transport moments, street scenes, and everyday China travel surprises.</p>
+            <div class="discover-keywords"><span>China vlog</span><span>Street scenes</span><span>Travel tips</span></div>
+            <div class="discover-cta">Open channel -></div>
+          </div>
+        </a>
+
+        <a class="discover-card" href="https://www.youtube.com/results?search_query=The+Food+Ranger+China+street+food" aria-label="Open The Food Ranger China street food videos on YouTube">
+          <div class="discover-thumb"><img src="assets/discover/food-ranger.svg" alt="China street food video cover"><div class="thumb-mark">FR</div></div>
+          <div class="discover-body">
+            <h3>The Food Ranger</h3>
+            <p>China street food videos for Chengdu, Guangzhou, Xi'an, Chongqing, noodle shops, markets, and deep local food adventures.</p>
+            <div class="discover-keywords"><span>Street food</span><span>Chengdu food</span><span>China markets</span></div>
+            <div class="discover-cta">Watch videos -></div>
+          </div>
+        </a>
+
+        <a class="discover-card" href="https://www.youtube.com/results?search_query=Strictly+Dumpling+China+food+travel" aria-label="Open Strictly Dumpling China food travel videos on YouTube">
+          <div class="discover-thumb"><img src="assets/discover/strictly-dumpling.svg" alt="China food travel video cover"><div class="thumb-mark">SD</div></div>
+          <div class="discover-body">
+            <h3>Strictly Dumpling</h3>
+            <p>Food-focused China travel videos from Mike Chen, useful for travelers planning meals around noodles, dumplings, hotpot, and snacks.</p>
+            <div class="discover-keywords"><span>China food travel</span><span>Dumplings</span><span>Hotpot</span></div>
+            <div class="discover-cta">Watch videos -></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <div class="disclaimer">
     Data reference: <strong>2026 policy notices</strong> — visa policies change frequently.
@@ -1649,6 +2001,22 @@ document.addEventListener('click', e => {
 document.getElementById('developerContactLink')?.addEventListener('click', e => {
   e.preventDefault();
   window.location.href = 'https://x.com/DZhao3007';
+});
+
+document.querySelectorAll('[data-discover-tab]').forEach(tabBtn => {
+  tabBtn.addEventListener('click', () => {
+    const target = tabBtn.dataset.discoverTab;
+    document.querySelectorAll('[data-discover-tab]').forEach(btn => {
+      const isActive = btn === tabBtn;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-selected', String(isActive));
+    });
+    document.querySelectorAll('.discover-panel').forEach(panel => {
+      const isActive = panel.id === (target === 'cities' ? 'discoverCities' : 'discoverCreators');
+      panel.classList.toggle('active', isActive);
+      panel.hidden = !isActive;
+    });
+  });
 });
 
 // ── Auto-load from URL hash ──

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="Shanghai travel cover">
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#16213f"/><stop offset=".62" stop-color="#2f5f98"/><stop offset="1" stop-color="#9cc6e8"/></linearGradient></defs>
+  <rect width="480" height="360" fill="url(#g)"/><path d="M0 258c70-18 124-14 186 4 92 27 174 22 294-19v117H0z" fill="#fff" opacity=".16"/>
+  <g fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".9"><path d="M92 250V156h34v94M158 250V112h38v138M226 250V70h28v180M240 70l18 26M294 250V128h44v122M374 250V170h26v80M76 250h330"/></g>
+  <circle cx="398" cy="78" r="30" fill="#f6d76b" opacity=".72"/>
+</svg>
