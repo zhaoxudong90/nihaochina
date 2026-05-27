@@ -2003,6 +2003,14 @@ document.getElementById('developerContactLink')?.addEventListener('click', e => 
   window.location.href = 'https://x.com/DZhao3007';
 });
 
+document.querySelectorAll('.discover-card[href]').forEach(card => {
+  card.addEventListener('click', e => {
+    e.preventDefault();
+    const href = card.getAttribute('href');
+    if (href) window.location.href = href;
+  });
+});
+
 document.querySelectorAll('[data-discover-tab]').forEach(tabBtn => {
   tabBtn.addEventListener('click', () => {
     const target = tabBtn.dataset.discoverTab;
