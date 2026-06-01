@@ -1,6 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="Beijing travel cover">
-  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#68111a"/><stop offset=".58" stop-color="#9f1d2a"/><stop offset="1" stop-color="#c79835"/></linearGradient></defs>
-  <rect width="480" height="360" fill="url(#g)"/><path d="M0 245c75-38 125-22 195-44 84-27 144-75 285-56v215H0z" fill="#111827" opacity=".22"/>
-  <g fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity=".86"><path d="M92 224h296M132 224v-64h216v64M114 160h252l-38-34H152zM160 126l20-31h120l20 31M206 224v-42h68v42"/></g>
-  <circle cx="394" cy="76" r="38" fill="#fff1a6" opacity=".8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="Beijing Temple of Heaven and Great Wall travel cover">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop stop-color="#a9d8e8"/>
+      <stop offset=".52" stop-color="#eef5df"/>
+      <stop offset="1" stop-color="#ffe3a1"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" x2="0" y1="0" y2="1">
+      <stop stop-color="#d92d16"/>
+      <stop offset="1" stop-color="#9f1d16"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#fff0a8"/>
+      <stop offset="1" stop-color="#e7a83a"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="360" fill="url(#sky)"/>
+  <path d="M0 202c54-35 98-46 148-36 57 11 87-8 128-42 48-40 110-43 172-12 15 8 24 20 32 34v214H0z" fill="#fff8d6" opacity=".68"/>
+  <path d="M292 184c34-32 75-56 126-61 20-2 42 2 62 10v55c-36-12-72-14-108-4-30 8-56 23-80 45z" fill="#f3c35b" opacity=".78"/>
+  <path d="M314 184h48v-42h38v42h56v31H314z" fill="#e4a23a" opacity=".9"/>
+  <path d="M346 142v-17h8v17m20 0v-17h8v17m20 0v-17h8v17m20 42v-17h8v17" stroke="#b85a20" stroke-width="5" stroke-linecap="round"/>
+  <path d="M312 216c44-27 88-36 168-25v30c-74-16-117-8-168 25z" fill="#bd3b1f" opacity=".86"/>
+  <path d="M0 225h480v135H0z" fill="#ffe7ad"/>
+  <path d="M72 244h336v35H72z" fill="#f2c35c" stroke="#fff1b6" stroke-width="4"/>
+  <path d="M86 279h308v44H86z" fill="#f7d27a" stroke="#fff1b6" stroke-width="4"/>
+  <path d="M104 323h272v37H104z" fill="#f9d98f" stroke="#fff1b6" stroke-width="4"/>
+  <path d="M126 360l54-82h120l54 82z" fill="#fff4c8" stroke="#d89c32" stroke-width="3"/>
+  <path d="M194 360l23-82h46l23 82" fill="none" stroke="#d89c32" stroke-width="3"/>
+  <g stroke="#c67a28" stroke-width="3" opacity=".75">
+    <path d="M86 300h308M104 342h272M126 244v116M354 244v116"/>
+    <path d="M112 260h22m20 0h22m20 0h22m20 0h22m20 0h22m20 0h22"/>
+    <path d="M116 307h24m22 0h24m22 0h24m22 0h24m22 0h24"/>
+  </g>
+  <path d="M74 218h332c-28-30-76-49-166-49s-138 19-166 49z" fill="url(#red)" stroke="url(#gold)" stroke-width="5"/>
+  <path d="M92 188h296c-18-24-62-40-148-40S110 164 92 188z" fill="url(#red)" stroke="url(#gold)" stroke-width="5"/>
+  <path d="M112 156h256c-23-22-64-34-128-34s-105 12-128 34z" fill="url(#red)" stroke="url(#gold)" stroke-width="5"/>
+  <path d="M138 128h204c-20-19-53-29-102-29s-82 10-102 29z" fill="url(#red)" stroke="url(#gold)" stroke-width="5"/>
+  <path d="M172 101h136c-15-13-39-20-68-20s-53 7-68 20z" fill="url(#red)" stroke="url(#gold)" stroke-width="5"/>
+  <path d="M186 218h108v-78H186z" fill="#d73318" stroke="url(#gold)" stroke-width="4"/>
+  <path d="M203 218v-50h74v50" fill="#8e1c13" stroke="#f6d36b" stroke-width="3"/>
+  <path d="M218 140h44v-28h-44z" fill="#f6d36b" stroke="#fff0a8" stroke-width="3"/>
+  <path d="M230 82h20v-26h-20z" fill="#d73318" stroke="#f6d36b" stroke-width="4"/>
+  <circle cx="240" cy="47" r="18" fill="url(#gold)" stroke="#fff0a8" stroke-width="3"/>
+  <g stroke="#ffd979" stroke-width="2" opacity=".9">
+    <path d="M94 219h292M112 188h256M136 156h208M170 128h140"/>
+    <path d="M152 100c30 44 49 80 56 118M328 100c-30 44-49 80-56 118M240 82v136"/>
+    <path d="M185 188v30M214 188v30M266 188v30M295 188v30"/>
+  </g>
+  <path d="M0 0h480v360H0z" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="2"/>
 </svg>
